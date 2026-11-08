@@ -1,0 +1,12 @@
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\bin\Debug\net10.0\DiretoFacil.Domain.deps.json
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\bin\Debug\net10.0\DiretoFacil.Domain.dll
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\bin\Debug\net10.0\DiretoFacil.Domain.pdb
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.AssemblyInfoInputs.cache
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.AssemblyInfo.cs
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.csproj.CoreCompileInputs.cache
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.sourcelink.json
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.dll
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\refint\DiretoFacil.Domain.dll
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\DiretoFacil.Domain.pdb
+E:\2TDSPG\Global Solution\DireitoFacil\DiretoFacil.Domain\obj\Debug\net10.0\ref\DiretoFacil.Domain.dll

@@ -1,7 +1,7 @@
-﻿using AbrePortas.Domain.Entities;
+﻿
 using DiretoFacil.Domain.Common;
 using DiretoFacil.Domain.Enums;
-using DiretoFacil.Domain.Expections;
+using DiretoFacil.Domain.Exceptions;
 
 namespace DiretoFacil.Domain.Entites;
 

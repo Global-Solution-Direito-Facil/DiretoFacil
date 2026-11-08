@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RXZWUKcL+5E=",
+  "dgSpecHash": "Z2+tv7U2c3c=",
   "success": true,
   "projectFilePath": "E:\\2TDSPG\\Global Solution\\DireitoFacil\\DireitoFacil.Application\\DireitoFacil.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pietr\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\pietr\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
