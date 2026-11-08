@@ -1,0 +1,6 @@
+@DireitoFacil_HostAddress = http://localhost:5264
+
+GET {{DireitoFacil_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

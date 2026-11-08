@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "RwMmslND0DY=",
+  "success": true,
+  "projectFilePath": "E:\\2TDSPG\\Global Solution\\DireitoFacil\\DireitoFacil.Api\\DireitoFacil.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pietr\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.14\\microsoft.aspnetcore.openapi.10.0.14.nupkg.sha512",
+    "C:\\Users\\pietr\\.nuget\\packages\\microsoft.openapi\\2.12.2\\microsoft.openapi.2.12.2.nupkg.sha512"
+  ],
+  "logs": []
+}
