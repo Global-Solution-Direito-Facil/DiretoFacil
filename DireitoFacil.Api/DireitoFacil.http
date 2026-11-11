@@ -1,6 +1,29 @@
-@DireitoFacil_HostAddress = http://localhost:5264
+@baseUrl = http://localhost:5000
+@token = cole-aqui-o-accessToken
 
-GET {{DireitoFacil_HostAddress}}/weatherforecast/
-Accept: application/json
+### Cadastro
+POST {{baseUrl}}/api/auth/registrar
+Content-Type: application/json
 
-###
+{ "nome": "Maria Silva", "email": "maria@email.com", "senha": "senha1234" }
+
+### Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "maria@email.com", "senha": "senha1234" }
+
+### Listar meus documentos
+GET {{baseUrl}}/api/documentos?page=1&pageSize=20
+Authorization: Bearer {{token}}
+
+### Criar envio (troque o id do documento; repita com a MESMA Idempotency-Key para ver o replay)
+POST {{baseUrl}}/api/envios
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Idempotency-Key: 3f1c9a52-6a0e-4c3b-9b1a-2f8e7d6c5b4a
+
+{ "casoId": 1, "direitoCodigo": "CIPTEA", "documentoIds": ["00000000-0000-0000-0000-000000000000"] }
+
+### Health
+GET {{baseUrl}}/health

@@ -1,9 +1,32 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+        <!-- PasswordHasher (PBKDF2), Options e BackgroundService vêm do framework ASP.NET Core. -->
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Oracle.EntityFrameworkCore" Version="10.23.26200" />
+        <PackageReference Include="Azure.Storage.Blobs" Version="12.24.0" />
+        <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
+        <!-- Força versão corrigida de dependência transitiva vulnerável (NU1902/NU1903). -->
+        <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DireitoFacil.Application\DireitoFacil.Application.csproj" />
+        <ProjectReference Include="..\DiretoFacil.Domain\DiretoFacil.Domain.csproj" />
+    </ItemGroup>
 
 </Project>

@@ -4,11 +4,27 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>DireitoFacil</RootNamespace>
+        <RootNamespace>DireitoFacil.Api</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <UserSecretsId>direitofacil-api</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.14"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+        <!-- Força versão corrigida (GHSA-v5pm-xwqc-g5wc afeta Microsoft.OpenApi até 2.7.4). -->
+        <PackageReference Include="Microsoft.OpenApi" Version="2.7.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DireitoFacil.Application\DireitoFacil.Application.csproj" />
+        <ProjectReference Include="..\DireitoFacil.Infrastructure\DireitoFacil.Infrastructure.csproj" />
+        <ProjectReference Include="..\DiretoFacil.Domain\DiretoFacil.Domain.csproj" />
     </ItemGroup>
 
 </Project>
