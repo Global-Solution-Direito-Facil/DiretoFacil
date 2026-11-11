@@ -1,4 +1,4 @@
-﻿
+
 using DiretoFacil.Domain.Common;
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
@@ -27,6 +27,9 @@ public class Documento : BaseEntity
     public string HashSha256 { get; private set; } = null!;
     public StatusDocumentoEnum Status { get; private set; }
     public bool ConsentimentoSaude { get; private set; }
+
+    /// <summary>Quando o titular deu o consentimento para dado de saúde (prova exigida pela LGPD).</summary>
+    public DateTime? ConsentimentoSaudeEm { get; private set; }
 
     protected Documento()
     {
@@ -66,6 +69,7 @@ public class Documento : BaseEntity
         TamanhoArquivo = tamanhoArquivo;
         HashSha256 = hashSha256.ToUpperInvariant();
         ConsentimentoSaude = consentimentoSaude;
+        ConsentimentoSaudeEm = consentimentoSaude ? DateTime.UtcNow : null;
         Descricao = descricao?.Trim();
         BlobPath = $"{cidadaoId}/{Id:N}";
         Status = StatusDocumentoEnum.Recebido;
@@ -82,6 +86,10 @@ public class Documento : BaseEntity
 
         var consentimento = ConsentimentoSaude || consentimentoSaude;
         ValidarConsentimento(tipo, consentimento);
+
+        // Registra a data só na primeira vez que o consentimento é dado.
+        if (consentimento && !ConsentimentoSaude)
+            ConsentimentoSaudeEm = DateTime.UtcNow;
 
         Tipo = tipo;
         Descricao = descricao?.Trim();

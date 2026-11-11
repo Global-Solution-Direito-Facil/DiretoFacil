@@ -1,4 +1,4 @@
-﻿using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entites;
 using DiretoFacil.Domain.Enums;
 
 namespace DireitoFacil.Domain.Tests;
@@ -11,6 +11,9 @@ internal static class Fakes
     public const string CidadaoA = "cidadao-a";
     public const string CidadaoB = "cidadao-b";
     public const string Gestor = "gestor-1";
+
+    /// <summary>Nenhum documento obrigatório: para testes que não tratam dessa regra.</summary>
+    public static readonly IReadOnlyCollection<TipoDocumentoEnum> SemObrigatorios = [];
 
     public static Documento Documento(
         string cidadaoId = CidadaoA,
@@ -26,7 +29,7 @@ internal static class Fakes
     public static Envio EnvioEnviado()
     {
         var envio = Envio();
-        envio.Submeter();
+        envio.Submeter(SemObrigatorios);
         return envio;
     }
 }

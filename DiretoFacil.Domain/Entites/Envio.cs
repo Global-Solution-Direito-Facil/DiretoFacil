@@ -1,4 +1,4 @@
-﻿
+
 using DiretoFacil.Domain.Common;
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
@@ -42,7 +42,7 @@ public class Envio : BaseEntity
 
         CidadaoId = cidadaoId;
         CasoId = casoId;
-        DireitoCodigo = direitoCodigo.Trim().ToUpperInvariant();
+        DireitoCodigo = DocumentoObrigatorio.NormalizarCodigo(direitoCodigo);
 
         AplicarDocumentos(documentos);
     }
@@ -57,12 +57,29 @@ public class Envio : BaseEntity
         MarcarAtualizado();
     }
 
-    public void Submeter()
+    /// <summary>
+    /// Envia para análise do assistente social.
+    /// </summary>
+    /// <param name="tiposObrigatorios">
+    /// Documentos exigidos pelo direito (tabela DocumentoObrigatorio). O service carrega a lista;
+    /// a regra de conferir o que falta fica aqui na entidade.
+    /// </param>
+    public void Submeter(IReadOnlyCollection<TipoDocumentoEnum> tiposObrigatorios)
     {
+        ArgumentNullException.ThrowIfNull(tiposObrigatorios);
         GarantirEditavel();
 
         if (_documentos.Any(ed => ed.Documento.Status == StatusDocumentoEnum.Falha))
             throw new RegraDeNegocioException("Há documento com falha de leitura. Envie o arquivo novamente.");
+
+        var faltando = tiposObrigatorios
+            .Distinct()
+            .Except(_documentos.Select(ed => ed.Documento.Tipo))
+            .ToList();
+
+        if (faltando.Count > 0)
+            throw new RegraDeNegocioException(
+                $"Faltam documentos obrigatórios para {DireitoCodigo}: {string.Join(", ", faltando)}.");
 
         Status = StatusEnvioEnum.Enviado;
         EnviadoEm = DateTime.UtcNow;
