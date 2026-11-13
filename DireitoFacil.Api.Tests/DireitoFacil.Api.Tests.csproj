@@ -21,6 +21,8 @@
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.8"/>
         <!-- Substitui o Oracle por SQLite em memória durante os testes. -->
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.8"/>
+        <!-- Fixa o SQLite nativo em versão corrigida: a 2.1.11, que vem do EF Core, tem vulnerabilidade alta (NU1903 / CVE-2025-6965). -->
+        <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.14"/>
     </ItemGroup>
 
     <ItemGroup>
