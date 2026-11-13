@@ -6,14 +6,22 @@ Disciplina: **Advanced Business Development with .NET**
 API REST em ASP.NET Core (.NET 10) que recebe os documentos da família (laudos, receitas, comprovantes) e organiza os **envios**: o pacote de documentos de um pedido de direito, analisado por um assistente social. É a API consumida pelo app mobile junto com a API Java.
 
 ## Integrantes
+# 👥 Integrantes da Equipe
 
-| RM | Nome completo | Turma |
-|---|---|---|
-| RM565594 | João Vitor Biribilli Ravelli | 2TDSPG |
-| RM564093 | Gabriel Neris Losano | 2TDSPG |
-| RM565554 | Alexander Dennis Isidro Mamani | 2TDSPG |
-| RM563748 | Kelson Zhang | 2TDSPG |
-| RM561378 | Pietro Paranhos Wilhelm | 2TDSPG |
+                                  
+
+
+
+
+
+
+| RM | Nome completo | Turma |  GitHub | LinkedIn         
+|---|---|---| ---| ---|
+| RM565594 | João Vitor Biribilli Ravelli | 2TDSPG | [biribillidev](https://github.com/biribillidev)   | —                                                           |
+| RM564093 | Gabriel Neris Losano | 2TDSPG | [GNLosano](https://github.com/GNLosano)              | [LinkedIn](https://www.linkedin.com/in/gabriellosano/)           |
+| RM565554 | Alexander Dennis Isidro Mamani | 2TDSPG | [alex-isidro](https://github.com/alex-isidro)     | [LinkedIn](https://www.linkedin.com/in/alexander-isidro/) |
+| RM563748 | Kelson Zhang | 2TDSPG | [KelsonZh0](https://github.com/KelsonZh0)                    | [LinkedIn](https://www.linkedin.com/in/kelson-zhang-211456323/)  |
+| RM561378 | Pietro Paranhos Wilhelm | 2TDSPG | [PietroWilhelm](https://github.com/PietroWilhelm) |  [LinkedIn](https://www.linkedin.com/in/pietrowilhelm/)          |
 
 ---
 
