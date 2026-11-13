@@ -17,7 +17,7 @@ API REST em ASP.NET Core (.NET 10) que recebe os documentos da família (laudos,
 
 | RM | Nome completo | Turma |  GitHub | LinkedIn         
 |---|---|---| ---| ---|
-| RM565594 | João Vitor Biribilli Ravelli | 2TDSPG | [biribillidev](https://github.com/biribillidev)   | —                                                           |
+| RM565594 | João Vitor Biribilli Ravelli | 2TDSPG | [biribillidev](https://github.com/biribillidev)   | [LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-vitor-biribilli-ravelli-b9b447367/) |
 | RM564093 | Gabriel Neris Losano | 2TDSPG | [GNLosano](https://github.com/GNLosano)              | [LinkedIn](https://www.linkedin.com/in/gabriellosano/)           |
 | RM565554 | Alexander Dennis Isidro Mamani | 2TDSPG | [alex-isidro](https://github.com/alex-isidro)     | [LinkedIn](https://www.linkedin.com/in/alexander-isidro/) |
 | RM563748 | Kelson Zhang | 2TDSPG | [KelsonZh0](https://github.com/KelsonZh0)                    | [LinkedIn](https://www.linkedin.com/in/kelson-zhang-211456323/)  |
