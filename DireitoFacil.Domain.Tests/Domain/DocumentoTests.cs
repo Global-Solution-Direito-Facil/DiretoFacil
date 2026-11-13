@@ -1,8 +1,7 @@
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
-using Xunit;
 
-namespace DireitoFacil.Domain.Tests;
+namespace DireitoFacil.Domain.Tests.Domain;
 
 public class DocumentoTests
 {

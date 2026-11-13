@@ -1,7 +1,7 @@
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 
-namespace DireitoFacil.Domain.Tests;
+namespace DireitoFacil.Domain.Tests.Domain;
 
 /// <summary>
 /// Fábrica de objetos válidos para os testes, evitando repetir construtores longos.

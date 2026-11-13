@@ -1,9 +1,10 @@
 using DireitoFacil.Application.Abstractions;
 using DireitoFacil.Application.DTOs;
 using DireitoFacil.Application.Repositories;
+using DireitoFacil.Application.Repositories.Interfaces;
 using DireitoFacil.Application.Services.Interfaces;
 using DireitoFacil.Application.Validation;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Exceptions;
 using Microsoft.Extensions.Logging;
 

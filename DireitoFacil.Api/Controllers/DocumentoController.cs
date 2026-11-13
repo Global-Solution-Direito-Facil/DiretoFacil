@@ -1,4 +1,5 @@
 using DireitoFacil.Api.Controllers.Forms;
+using DireitoFacil.Api.Extensions;
 using DireitoFacil.Api.Filters;
 using DireitoFacil.Api.Security;
 using DireitoFacil.Application.DTOs;

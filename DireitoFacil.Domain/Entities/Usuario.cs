@@ -3,7 +3,7 @@ using DiretoFacil.Domain.Common;
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
 
-namespace DiretoFacil.Domain.Entites;
+namespace DiretoFacil.Domain.Entities;
 
 /// <summary>
 /// Conta de acesso à API (login próprio com JWT).

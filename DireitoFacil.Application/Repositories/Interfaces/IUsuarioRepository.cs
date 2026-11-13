@@ -1,6 +1,6 @@
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 
-namespace DireitoFacil.Application.Repositories;
+namespace DireitoFacil.Application.Repositories.Interfaces;
 
 public interface IUsuarioRepository : IRepository<Usuario>
 {

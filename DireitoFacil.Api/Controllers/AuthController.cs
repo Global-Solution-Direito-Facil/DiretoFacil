@@ -1,3 +1,4 @@
+using DireitoFacil.Api.Extensions;
 using DireitoFacil.Application.DTOs;
 using DireitoFacil.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;

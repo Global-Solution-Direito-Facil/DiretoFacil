@@ -1,4 +1,5 @@
 using DireitoFacil.Application.Repositories;
+using DireitoFacil.Application.Repositories.Interfaces;
 using DireitoFacil.Infrastructure.Persistence;
 using DiretoFacil.Domain.Common;
 using Microsoft.EntityFrameworkCore;

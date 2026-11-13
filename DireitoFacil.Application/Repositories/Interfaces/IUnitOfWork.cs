@@ -1,4 +1,4 @@
-namespace DireitoFacil.Application.Repositories;
+namespace DireitoFacil.Application.Repositories.Interfaces;
 
 /// <summary>
 /// Confirma numa única transação tudo o que os repositórios marcaram.

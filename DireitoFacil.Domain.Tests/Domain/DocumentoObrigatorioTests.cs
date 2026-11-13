@@ -1,8 +1,8 @@
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
 
-namespace DireitoFacil.Domain.Tests;
+namespace DireitoFacil.Domain.Tests.Domain;
 
 public class DocumentoObrigatorioTests
 {

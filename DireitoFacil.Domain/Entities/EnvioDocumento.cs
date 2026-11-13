@@ -1,4 +1,4 @@
-﻿namespace DiretoFacil.Domain.Entites;
+﻿namespace DiretoFacil.Domain.Entities;
 
 /// <summary>
 /// Associação N:N entre Envio e Documento (um mesmo laudo serve para vários pedidos).

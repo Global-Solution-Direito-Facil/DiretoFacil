@@ -1,6 +1,7 @@
 using DireitoFacil.Application.Repositories;
+using DireitoFacil.Application.Repositories.Interfaces;
 using DireitoFacil.Infrastructure.Persistence.Models;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DireitoFacil.Infrastructure.Persistence;

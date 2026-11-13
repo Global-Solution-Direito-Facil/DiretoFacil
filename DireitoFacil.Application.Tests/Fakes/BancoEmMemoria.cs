@@ -1,6 +1,7 @@
 using DireitoFacil.Application.DTOs;
 using DireitoFacil.Application.Repositories;
-using DiretoFacil.Domain.Entites;
+using DireitoFacil.Application.Repositories.Interfaces;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 
 namespace DireitoFacil.Application.Tests.Fakes;

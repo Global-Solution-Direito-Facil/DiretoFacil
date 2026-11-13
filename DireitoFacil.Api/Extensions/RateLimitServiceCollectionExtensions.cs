@@ -1,6 +1,6 @@
 using System.Threading.RateLimiting;
 
-namespace DireitoFacil.Api;
+namespace DireitoFacil.Api.Extensions;
 
 /// <summary>
 /// Nomes das políticas de rate limiting usadas em [EnableRateLimiting].

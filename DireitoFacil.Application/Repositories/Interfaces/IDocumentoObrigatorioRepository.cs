@@ -1,6 +1,6 @@
 using DiretoFacil.Domain.Enums;
 
-namespace DireitoFacil.Application.Repositories;
+namespace DireitoFacil.Application.Repositories.Interfaces;
 
 /// <summary>
 /// Leitura da tabela de documentos obrigatórios por direito (carregada por seed).

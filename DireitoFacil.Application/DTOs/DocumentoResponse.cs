@@ -1,4 +1,4 @@
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 
 namespace DireitoFacil.Application.DTOs;

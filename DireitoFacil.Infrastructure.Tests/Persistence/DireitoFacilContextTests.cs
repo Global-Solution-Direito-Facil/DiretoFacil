@@ -1,6 +1,7 @@
 using DireitoFacil.Application.Repositories;
-using DireitoFacil.Infrastructure.Tests.Infra;
-using DiretoFacil.Domain.Entites;
+using DireitoFacil.Application.Repositories.Interfaces;
+using DireitoFacil.Infrastructure.Tests.infra;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 

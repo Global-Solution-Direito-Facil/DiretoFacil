@@ -1,5 +1,6 @@
 using DireitoFacil.Application.Abstractions;
 using DireitoFacil.Application.Repositories;
+using DireitoFacil.Application.Repositories.Interfaces;
 using DireitoFacil.Application.Services.Implementations;
 using DireitoFacil.Application.Services.Interfaces;
 using DireitoFacil.Infrastructure.Messaging;

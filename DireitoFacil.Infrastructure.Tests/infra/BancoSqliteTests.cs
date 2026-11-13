@@ -1,10 +1,10 @@
 ﻿using DireitoFacil.Infrastructure.Persistence;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
-namespace DireitoFacil.Infrastructure.Tests.Infra;
+namespace DireitoFacil.Infrastructure.Tests.infra;
 
 /// <summary>
 /// Isso é apenas para demonstração e testes. O banco utilizado em SI é ORACLE

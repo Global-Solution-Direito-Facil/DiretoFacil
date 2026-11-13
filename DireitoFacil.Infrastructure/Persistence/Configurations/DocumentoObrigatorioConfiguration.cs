@@ -1,5 +1,5 @@
 using DireitoFacil.Infrastructure.Persistence.Seed;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

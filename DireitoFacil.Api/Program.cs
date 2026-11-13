@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using DireitoFacil.Api;
 using DireitoFacil.Api.Exceptions;
 using DireitoFacil.Api.Extensions;
 using DireitoFacil.Api.Health;
@@ -103,7 +102,10 @@ app.MapHealthChecks("/health/live", new HealthCheckOptions
 
 app.Run();
 
-/// <summary>Exposto para os testes de integração (WebApplicationFactory).</summary>
-public partial class Program
+namespace DireitoFacil.Api
 {
+    /// <summary>Exposto para os testes de integração (WebApplicationFactory).</summary>
+    public partial class Program
+    {
+    }
 }

@@ -1,6 +1,6 @@
 using DiretoFacil.Domain.Common;
 
-namespace DireitoFacil.Application.Repositories;
+namespace DireitoFacil.Application.Repositories.Interfaces;
 
 /// <summary>
 /// Contrato genérico de persistência para entidades que derivam de <see cref="BaseEntity"/>.

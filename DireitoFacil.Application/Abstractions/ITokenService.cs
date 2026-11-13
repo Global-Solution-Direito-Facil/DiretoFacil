@@ -1,5 +1,5 @@
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 
 namespace DireitoFacil.Application.Abstractions;
 

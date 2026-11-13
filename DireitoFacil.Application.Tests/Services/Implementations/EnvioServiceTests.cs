@@ -1,7 +1,7 @@
 using DireitoFacil.Application.DTOs;
 using DireitoFacil.Application.Services.Implementations;
 using DireitoFacil.Application.Tests.Fakes;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
 using Microsoft.Extensions.Logging.Abstractions;

@@ -1,9 +1,8 @@
-
 using DiretoFacil.Domain.Common;
 using DiretoFacil.Domain.Enums;
 using DiretoFacil.Domain.Exceptions;
 
-namespace DiretoFacil.Domain.Entites;
+namespace DiretoFacil.Domain.Entities;
 
 /// <summary>
 /// Documento enviado pela família (laudo, receita, comprovantes).

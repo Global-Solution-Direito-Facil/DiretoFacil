@@ -1,7 +1,7 @@
 using System.Text.Json;
 using DireitoFacil.Application.Events;
 using DireitoFacil.Infrastructure.Messaging;
-using DireitoFacil.Infrastructure.Tests.Infra;
+using DireitoFacil.Infrastructure.Tests.infra;
 using Microsoft.EntityFrameworkCore;
 
 namespace DireitoFacil.Infrastructure.Tests.Messaging;

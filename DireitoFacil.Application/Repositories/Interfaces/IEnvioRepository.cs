@@ -1,7 +1,7 @@
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Entites;
+using DiretoFacil.Domain.Entities;
 
-namespace DireitoFacil.Application.Repositories;
+namespace DireitoFacil.Application.Repositories.Interfaces;
 
 public interface IEnvioRepository : IRepository<Envio>
 {
