@@ -24,7 +24,7 @@
     <ItemGroup>
         <ProjectReference Include="..\DireitoFacil.Application\DireitoFacil.Application.csproj" />
         <ProjectReference Include="..\DireitoFacil.Infrastructure\DireitoFacil.Infrastructure.csproj" />
-        <ProjectReference Include="..\DiretoFacil.Domain\DiretoFacil.Domain.csproj" />
+        <ProjectReference Include="..\DireitoFacil.Domain\DireitoFacil.Domain.csproj" />
     </ItemGroup>
 
 </Project>
