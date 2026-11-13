@@ -1,4 +1,4 @@
-namespace DiretoFacil.Domain.Enums;
+namespace DireitoFacil.Domain.Enums;
 
 /// <summary>
 /// Papéis usados na autorização (claim "role" do JWT).

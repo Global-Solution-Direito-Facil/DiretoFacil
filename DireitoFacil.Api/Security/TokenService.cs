@@ -2,7 +2,7 @@ using System.Security.Claims;
 using System.Text;
 using DireitoFacil.Application.Abstractions;
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Entities;
+using DireitoFacil.Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;

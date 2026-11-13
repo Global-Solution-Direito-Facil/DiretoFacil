@@ -1,6 +1,6 @@
 ﻿using DireitoFacil.Infrastructure.Persistence;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 

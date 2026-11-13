@@ -1,4 +1,4 @@
-﻿namespace DiretoFacil.Domain.Enums;
+﻿namespace DireitoFacil.Domain.Enums;
 
 /// <summary>
 /// Ciclo do documento: RECEBIDO → PROCESSANDO (IA extraindo) → EXTRAIDO ou FALHA.

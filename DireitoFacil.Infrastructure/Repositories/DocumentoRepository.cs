@@ -2,8 +2,8 @@ using DireitoFacil.Application.DTOs;
 using DireitoFacil.Application.Repositories;
 using DireitoFacil.Application.Repositories.Interfaces;
 using DireitoFacil.Infrastructure.Persistence;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace DireitoFacil.Infrastructure.Repositories;

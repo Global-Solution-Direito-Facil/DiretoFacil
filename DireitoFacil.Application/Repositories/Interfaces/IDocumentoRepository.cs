@@ -1,5 +1,5 @@
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Entities;
+using DireitoFacil.Domain.Entities;
 
 namespace DireitoFacil.Application.Repositories.Interfaces;
 

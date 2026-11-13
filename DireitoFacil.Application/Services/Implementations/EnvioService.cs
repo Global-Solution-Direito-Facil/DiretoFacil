@@ -4,8 +4,8 @@ using DireitoFacil.Application.Repositories;
 using DireitoFacil.Application.Repositories.Interfaces;
 using DireitoFacil.Application.Services.Interfaces;
 using DireitoFacil.Application.Validation;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Exceptions;
 using Microsoft.Extensions.Logging;
 
 namespace DireitoFacil.Application.Services.Implementations;

@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Enums;
 
 namespace DireitoFacil.Api.Controllers.Forms;
 

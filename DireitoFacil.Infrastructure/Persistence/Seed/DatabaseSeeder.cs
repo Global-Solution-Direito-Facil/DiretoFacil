@@ -1,6 +1,6 @@
 using DireitoFacil.Application.Abstractions;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

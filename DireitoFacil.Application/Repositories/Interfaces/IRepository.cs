@@ -1,4 +1,4 @@
-using DiretoFacil.Domain.Common;
+using DireitoFacil.Domain.Common;
 
 namespace DireitoFacil.Application.Repositories.Interfaces;
 

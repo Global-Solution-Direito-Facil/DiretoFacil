@@ -1,4 +1,4 @@
-﻿namespace DiretoFacil.Domain.Enums;
+﻿namespace DireitoFacil.Domain.Enums;
 
 public enum TipoDocumentoEnum
 {

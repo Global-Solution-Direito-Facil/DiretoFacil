@@ -1,4 +1,4 @@
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Enums;
 
 namespace DireitoFacil.Infrastructure.Persistence.Seed;
 

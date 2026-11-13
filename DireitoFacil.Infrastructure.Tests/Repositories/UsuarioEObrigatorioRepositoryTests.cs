@@ -1,7 +1,7 @@
 using DireitoFacil.Infrastructure.Repositories;
 using DireitoFacil.Infrastructure.Tests.infra;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
 
 namespace DireitoFacil.Infrastructure.Tests.Repositories;
 

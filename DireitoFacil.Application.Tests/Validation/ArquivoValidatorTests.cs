@@ -1,6 +1,6 @@
 using DireitoFacil.Application.Tests.Fakes;
 using DireitoFacil.Application.Validation;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Exceptions;
 
 namespace DireitoFacil.Application.Tests.Validation;
 

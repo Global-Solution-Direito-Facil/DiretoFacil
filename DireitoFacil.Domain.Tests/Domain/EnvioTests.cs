@@ -1,6 +1,6 @@
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
+using DireitoFacil.Domain.Exceptions;
 
 namespace DireitoFacil.Domain.Tests.Domain;
 

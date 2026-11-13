@@ -1,5 +1,5 @@
-using DiretoFacil.Domain.Enums;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Enums;
+using DireitoFacil.Domain.Exceptions;
 
 namespace DireitoFacil.Domain.Tests.Domain;
 

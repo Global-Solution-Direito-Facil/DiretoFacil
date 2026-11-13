@@ -1,6 +1,6 @@
 using DireitoFacil.Application.Abstractions;
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Entities;
+using DireitoFacil.Domain.Entities;
 
 namespace DireitoFacil.Application.Tests.Fakes;
 

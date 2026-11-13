@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Enums;
 
 namespace DireitoFacil.Api.Tests.Infra;
 

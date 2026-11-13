@@ -97,7 +97,7 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                     b.ToTable("DF_OUTBOX", (string)null);
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.Documento", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.Documento", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -167,7 +167,7 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                     b.ToTable("DF_DOCUMENTO", (string)null);
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.DocumentoObrigatorio", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.DocumentoObrigatorio", b =>
                 {
                     b.Property<string>("DireitoCodigo")
                         .HasMaxLength(60)
@@ -314,7 +314,7 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.Envio", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.Envio", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -367,7 +367,7 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                     b.ToTable("DF_ENVIO", (string)null);
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.EnvioDocumento", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.EnvioDocumento", b =>
                 {
                     b.Property<Guid>("EnvioId")
                         .HasColumnType("RAW(16)");
@@ -382,7 +382,7 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                     b.ToTable("DF_ENVIO_DOCUMENTO", (string)null);
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.Usuario", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.Usuario", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -422,15 +422,15 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                     b.ToTable("DF_USUARIO", (string)null);
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.EnvioDocumento", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.EnvioDocumento", b =>
                 {
-                    b.HasOne("DireitoFacil.Domain.Entites.Documento", "Documento")
+                    b.HasOne("DireitoFacil.Domain.Entities.Documento", "Documento")
                         .WithMany()
                         .HasForeignKey("DocumentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DireitoFacil.Domain.Entites.Envio", null)
+                    b.HasOne("DireitoFacil.Domain.Entities.Envio", null)
                         .WithMany("Documentos")
                         .HasForeignKey("EnvioId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -439,7 +439,7 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                     b.Navigation("Documento");
                 });
 
-            modelBuilder.Entity("DireitoFacil.Domain.Entites.Envio", b =>
+            modelBuilder.Entity("DireitoFacil.Domain.Entities.Envio", b =>
                 {
                     b.Navigation("Documentos");
                 });

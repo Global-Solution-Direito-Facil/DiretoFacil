@@ -39,7 +39,7 @@ ODS: 3 (Saúde e bem-estar), 10 (Redução das desigualdades) e 11 (Cidades e co
 flowchart LR
     App[App Mobile<br/>React Native] -->|JWT| Api[DireitoFacil.Api<br/>Controllers]
     Api --> App2[DireitoFacil.Application<br/>Services, DTOs, validações]
-    App2 --> Dom[DiretoFacil.Domain<br/>Entidades e regras]
+    App2 --> Dom[DireitoFacil.Domain<br/>Entidades e regras]
     App2 --> Inf[DireitoFacil.Infrastructure<br/>EF Core, Storage, Outbox]
     Inf --> Ora[(Oracle)]
     Inf --> Blob[(Storage privado<br/>Local ou Azure Blob)]
@@ -54,7 +54,7 @@ Camadas no padrão do projeto de referência da disciplina:
 |---|---|
 | `DireitoFacil.Api` | Controllers, JWT, rate limiting, idempotência, health checks, Swagger e tratamento global de erros |
 | `DireitoFacil.Application` | Services, DTOs com DataAnnotations, interfaces de repositório e validação de arquivo |
-| `DiretoFacil.Domain` | Entidades (`Usuario`, `Documento`, `Envio`, `EnvioDocumento`, `DocumentoObrigatorio`), enums e máquinas de estado |
+| `DireitoFacil.Domain` | Entidades (`Usuario`, `Documento`, `Envio`, `EnvioDocumento`, `DocumentoObrigatorio`), enums e máquinas de estado |
 | `DireitoFacil.Infrastructure` | `DbContext` (Oracle), migrations, repositórios, hash de senha, storage, outbox e publicação no RabbitMQ |
 | `*.Tests` | Testes xUnit: Domain, Application, Infrastructure e Api (integração) |
 

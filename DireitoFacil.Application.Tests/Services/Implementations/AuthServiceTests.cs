@@ -2,9 +2,9 @@ using DireitoFacil.Application.DTOs;
 using DireitoFacil.Application.Exceptions;
 using DireitoFacil.Application.Services.Implementations;
 using DireitoFacil.Application.Tests.Fakes;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
+using DireitoFacil.Domain.Exceptions;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace DireitoFacil.Application.Tests.Services.Implementations;

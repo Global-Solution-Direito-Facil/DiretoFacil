@@ -1,8 +1,8 @@
 using System.Net.Http.Headers;
 using DireitoFacil.Application.Abstractions;
 using DireitoFacil.Infrastructure.Persistence;
-using DiretoFacil.Domain.Entities;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Entities;
+using DireitoFacil.Domain.Enums;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;

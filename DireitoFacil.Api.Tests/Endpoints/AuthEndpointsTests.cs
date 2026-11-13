@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using DireitoFacil.Api.Tests.Infra;
 using DireitoFacil.Application.DTOs;
-using DiretoFacil.Domain.Enums;
+using DireitoFacil.Domain.Enums;
 
 namespace DireitoFacil.Api.Tests.Endpoints;
 

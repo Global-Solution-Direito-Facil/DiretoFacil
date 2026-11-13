@@ -1,4 +1,4 @@
-﻿namespace DiretoFacil.Domain.Common;
+﻿namespace DireitoFacil.Domain.Common;
 
 /// <summary>
 /// Base de todas as entidades: identidade e datas de auditoria.

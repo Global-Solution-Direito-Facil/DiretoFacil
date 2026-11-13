@@ -488,3 +488,7 @@ arquivos/
 # Segredos locais
 *.env
 appsettings.*.local.json
+
+# Local: credenciais e artefatos gerados
+GerarSecrets.txt
+graphify-out/

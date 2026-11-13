@@ -1,6 +1,6 @@
 using System.Data.Common;
 using DireitoFacil.Application.Exceptions;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Exceptions;
 
 namespace DireitoFacil.Application.Validation;
 

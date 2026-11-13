@@ -1,4 +1,4 @@
-﻿namespace DiretoFacil.Domain.Exceptions;
+﻿namespace DireitoFacil.Domain.Exceptions;
 
 /// <summary>
 /// Operação válida em si, mas proibida no estado atual da entidade (vira 409 Conflict).

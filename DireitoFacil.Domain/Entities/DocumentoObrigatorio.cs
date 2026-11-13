@@ -1,7 +1,7 @@
-using DiretoFacil.Domain.Enums;
-using DiretoFacil.Domain.Exceptions;
+using DireitoFacil.Domain.Enums;
+using DireitoFacil.Domain.Exceptions;
 
-namespace DiretoFacil.Domain.Entities;
+namespace DireitoFacil.Domain.Entities;
 
 /// <summary>
 /// Documento exigido por um direito (ex.: CIPTEA exige LAUDO, RG e foto).
