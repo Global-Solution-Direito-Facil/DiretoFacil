@@ -1,0 +1,141 @@
+# =============================================================
+# azure-pipeline.yml – CI/CD do DireitoFácil (Global Solution 2026/2)
+# Dispara a cada push na branch main (que só recebe código por PR,
+# pela política de branch):
+#   Stage CI
+#     1. Criar Infra Inicial: tabelas no Oracle (se não existirem) + Web App na Azure
+#     2. Build and Test: restore, build, testes xUnit (publicados) e artefato "app"
+#   Stage CD (só roda depois que o CI gera um novo artefato com sucesso)
+#     3. Deploy do artefato "app" no Web App (Azure App Service)
+# =============================================================
+
+trigger:
+  branches:
+    include:
+      - main
+
+pr: none
+
+variables:
+  buildConfiguration: 'Release'
+  ORACLE_HOST: 'oracle.fiap.com.br'
+  ORACLE_PORT: '1521'
+  ORACLE_SID: 'orcl'
+  ORACLE_USER: 'rm561378'
+  NOME_WEBAPP: 'direitofacil-rm561378'
+  LOCATION: 'southafricanorth'
+  # Pasta gravável e persistente do App Service Windows (o wwwroot fica somente leitura
+  # quando o pacote roda direto do zip).
+  STORAGE_PASTA: 'D:\home\data\arquivos'
+  # Variáveis SECRETAS ficam só no botão "Variables" da pipeline (com cadeado), nunca aqui —
+  # uma variável declarada no YAML substitui a secreta:
+  #   ORACLE_PASS        senha do Oracle (usada pelo infra-direitofacil.sh no CI)
+  #   OracleConnection   connection string do Oracle (App Settings do Web App no CD)
+  #   JwtChave           chave do JWT, a mesma da API Java (App Settings no CD)
+  #   SeedGestorEmail    e-mail da conta do assistente social (GESTOR) criada no seed
+  #   SeedGestorSenha    senha dessa conta
+
+stages:
+- stage: CI
+  displayName: 'CI - Infra, Build e Testes'
+  jobs:
+
+  - job: CriarInfraInicial
+    displayName: 'Criar Infra Inicial'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: AzureCLI@2
+      displayName: 'Banco e Azure (infra-direitofacil.sh)'
+      inputs:
+        azureSubscription: 'DireitoFacilAzure'
+        scriptType: 'bash'
+        scriptLocation: 'scriptPath'
+        scriptPath: 'scripts/infra-direitofacil.sh'
+        arguments: '$(ORACLE_HOST) $(ORACLE_PORT) $(ORACLE_SID) $(ORACLE_USER) $(ORACLE_PASS)'
+
+  - job: BuildAndTest
+    displayName: 'Build and Test'
+    dependsOn: CriarInfraInicial
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Instalar SDK .NET 10'
+      inputs:
+        packageType: 'sdk'
+        version: '10.x'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore'
+      inputs:
+        command: 'restore'
+        projects: 'DireitoFacil.sln'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Build'
+      inputs:
+        command: 'build'
+        projects: 'DireitoFacil.sln'
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+
+    # Domain, Application, Infrastructure (SQLite em memória) e Api (WebApplicationFactory):
+    # nenhum teste precisa do Oracle nem do RabbitMQ.
+    - task: DotNetCoreCLI@2
+      displayName: 'Testes automatizados (xUnit)'
+      inputs:
+        command: 'test'
+        projects: '**/*.Tests.csproj'
+        arguments: '--configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage"'
+        publishTestResults: true
+        testRunTitle: 'Testes DireitoFácil'
+
+    - task: PublishCodeCoverageResults@2
+      displayName: 'Publicar cobertura de testes'
+      condition: succeededOrFailed()
+      inputs:
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Publish da API'
+      inputs:
+        command: 'publish'
+        publishWebProjects: false
+        projects: 'DireitoFacil.Api/DireitoFacil.Api.csproj'
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publicar artefato (app)'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'app'
+        publishLocation: 'Container'
+
+- stage: CD
+  displayName: 'CD - Deploy no Web App'
+  dependsOn: CI
+  condition: succeeded()
+  jobs:
+
+  - deployment: DeployWebApp
+    displayName: 'Deploy no Serviço de Aplicativo'
+    environment: 'producao'
+    pool:
+      vmImage: 'windows-latest'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: 'app'
+            displayName: 'Baixar artefato (app)'
+
+          - task: AzureWebApp@1
+            displayName: 'Deploy Azure Web App ($(NOME_WEBAPP))'
+            inputs:
+              azureSubscription: 'DireitoFacilAzure'
+              appType: 'webApp'
+              appName: '$(NOME_WEBAPP)'
+              package: '$(Pipeline.Workspace)/app/**/*.zip'
+              appSettings: '-ASPNETCORE_ENVIRONMENT Production -ConnectionStrings__DireitoFacilOracle "$(OracleConnection)" -Jwt__Chave "$(JwtChave)" -Storage__Provider Local -Storage__PastaLocal "$(STORAGE_PASTA)" -Seed__Gestor__Email "$(SeedGestorEmail)" -Seed__Gestor__Senha "$(SeedGestorSenha)"'
