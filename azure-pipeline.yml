@@ -34,6 +34,7 @@ variables:
   #   JwtChave           chave do JWT, a mesma da API Java (App Settings no CD)
   #   SeedGestorEmail    e-mail da conta do assistente social (GESTOR) criada no seed
   #   SeedGestorSenha    senha dessa conta
+#   RabbitMqUri        URL AMQPS do RabbitMQ (CloudAMQP), o mesmo broker da API Java
 
 stages:
 - stage: CI
@@ -138,4 +139,4 @@ stages:
               appType: 'webApp'
               appName: '$(NOME_WEBAPP)'
               package: '$(Pipeline.Workspace)/app/**/*.zip'
-              appSettings: '-ASPNETCORE_ENVIRONMENT Production -ConnectionStrings__DireitoFacilOracle "$(OracleConnection)" -Jwt__Chave "$(JwtChave)" -Storage__Provider Local -Storage__PastaLocal "$(STORAGE_PASTA)" -Seed__Gestor__Email "$(SeedGestorEmail)" -Seed__Gestor__Senha "$(SeedGestorSenha)"'
+              appSettings: '-ASPNETCORE_ENVIRONMENT Production -ConnectionStrings__DireitoFacilOracle "$(OracleConnection)" -Jwt__Chave "$(JwtChave)" -Storage__Provider Local -Storage__PastaLocal "$(STORAGE_PASTA)" -Seed__Gestor__Email "$(SeedGestorEmail)" -Seed__Gestor__Senha "$(SeedGestorSenha)" -RabbitMq__Uri "$(RabbitMqUri)"'

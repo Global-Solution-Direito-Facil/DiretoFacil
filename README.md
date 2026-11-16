@@ -492,6 +492,8 @@ Campos do evento:
 }
 ```
 
+Na nuvem, o broker é um RabbitMQ gerenciado no **CloudAMQP** (plano gratuito Little Lemur), acessível pelas duas APIs pela internet via `amqps://`. A URL fica na variável secreta `RabbitMqUri` da pipeline.
+
 Sem `RabbitMq:Uri` configurado, a API continua funcionando normalmente: os eventos ficam acumulados no outbox e o `/health` fica `Degraded`.
 
 ---
@@ -651,6 +653,7 @@ Os recursos são criados pelo `scripts/infra-direitofacil.sh` (Azure CLI), que �
 | `JwtChave` | Chave de assinatura do JWT (a mesma da API Java) → App Setting `Jwt__Chave` |
 | `SeedGestorEmail` | E-mail da conta GESTOR criada no seed → `Seed__Gestor__Email` |
 | `SeedGestorSenha` | Senha da conta GESTOR → `Seed__Gestor__Senha` |
+| `RabbitMqUri` | URL AMQPS do RabbitMQ gerenciado (CloudAMQP), o mesmo broker da API Java → `RabbitMq__Uri` |
 
 As variáveis não secretas (host, porta, SID e usuário do Oracle, nome do Web App, região e pasta de arquivos) ficam no bloco `variables` do `azure-pipeline.yml`.
 
