@@ -137,7 +137,7 @@ DireitoFacil
 ├── DireitoFacil.Infrastructure.Tests
 ├── scripts/            (infra-direitofacil.sh, script-bd.sql, crud-demo.sql)
 ├── docs/               (diagrama da arquitetura)
-└── azure-pipelines.yml
+└── azure-pipeline.yml
 ```
 
 ### DireitoFacil.Api
@@ -369,7 +369,7 @@ Exemplo de resposta:
     { "name": "oracle", "status": "Healthy", "description": "...", "durationMs": 380.2, "error": null },
     { "name": "storage", "status": "Healthy", "description": "...", "durationMs": 2.4, "error": null },
     { "name": "rabbitmq", "status": "Degraded", "description": "RabbitMQ não configurado: eventos acumulando no outbox.", "durationMs": 0.3, "error": null },
-    { "name": "api-java", "status": "Degraded", "description": "...", "durationMs": 0.2, "error": null }
+    { "name": "api-java", "status": "Healthy", "description": "API Java não configurada para monitoramento.", "durationMs": 0.2, "error": null }
   ]
 }
 ```
@@ -582,7 +582,7 @@ http://localhost:5264/health
 
 ## Deploy em Nuvem (CI/CD com Azure DevOps)
 
-A API é publicada no **Azure App Service (Web App)** por uma pipeline YAML do **Azure DevOps** (`azure-pipelines.yml`, na raiz). Cada merge na branch `main` dispara a pipeline, que cria a infraestrutura (se ainda não existir), compila, roda os testes automatizados e faz o deploy, sem nenhum passo manual.
+A API é publicada no **Azure App Service (Web App)** por uma pipeline YAML do **Azure DevOps** (`azure-pipeline.yml`, na raiz). Cada merge na branch `main` dispara a pipeline, que cria a infraestrutura (se ainda não existir), compila, roda os testes automatizados e faz o deploy, sem nenhum passo manual.
 
 - **API em produção (Swagger):** `https://direitofacil-rm561378.azurewebsites.net`
 - **Health check:** `https://direitofacil-rm561378.azurewebsites.net/health`
@@ -632,7 +632,7 @@ Os recursos são criados pelo `scripts/infra-direitofacil.sh` (Azure CLI), que �
 
 | Arquivo | Conteúdo |
 |---|---|
-| `azure-pipelines.yml` | Pipeline YAML: Stage CI (infra, build, testes, artefato) e Stage CD (deploy) |
+| `azure-pipeline.yml` | Pipeline YAML: Stage CI (infra, build, testes, artefato) e Stage CD (deploy) |
 | `scripts/infra-direitofacil.sh` | Script Azure CLI: tabelas no Oracle (SQLcl) + Resource Group, Plano e Web App |
 | `scripts/script-bd.sql` | DDL dos objetos do banco (gerado por `dotnet ef migrations script --idempotent`) |
 | `scripts/crud-demo.sql` | CRUD de todas as tabelas, executado direto no Oracle |
@@ -652,7 +652,7 @@ Os recursos são criados pelo `scripts/infra-direitofacil.sh` (Azure CLI), que �
 | `SeedGestorEmail` | E-mail da conta GESTOR criada no seed → `Seed__Gestor__Email` |
 | `SeedGestorSenha` | Senha da conta GESTOR → `Seed__Gestor__Senha` |
 
-As variáveis não secretas (host, porta, SID e usuário do Oracle, nome do Web App, região e pasta de arquivos) ficam no bloco `variables` do `azure-pipelines.yml`.
+As variáveis não secretas (host, porta, SID e usuário do Oracle, nome do Web App, região e pasta de arquivos) ficam no bloco `variables` do `azure-pipeline.yml`.
 
 > No App Service Windows o `wwwroot` fica somente leitura quando o pacote roda direto do .zip. Por isso os arquivos enviados são gravados em `D:\home\data\arquivos` (`Storage__PastaLocal`), pasta gravável e persistente.
 
