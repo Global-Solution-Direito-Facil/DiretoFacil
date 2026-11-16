@@ -147,7 +147,7 @@ FROM "DF_IDEMPOTENCIA" WHERE "Chave" = HEXTORAW('D000000000000000000000000000000
 --    Criado com ProcessadoEm preenchido para o OutboxWorker da API ignorar
 -- =====================================================================
 INSERT INTO "DF_OUTBOX" ("Id","Tipo","Payload","CriadoEm","ProcessadoEm","Tentativas")
-VALUES (HEXTORAW('E0000000000000000000000000000001'), 'DocumentoRecebido',
+VALUES (HEXTORAW('E0000000000000000000000000000001'), 'DocumentoRecebidoEvent',
         '{"documentoId":"demo"}', SYSTIMESTAMP, SYSTIMESTAMP, 0);
 COMMIT;
 

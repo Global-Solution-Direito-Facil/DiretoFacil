@@ -4,9 +4,18 @@
 
 Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Cloud Computing**.
 
+## Links da aplicação
+
+| Recurso | URL |
+|---|---|
+| Swagger (API em produção) | [https://direitofacil-rm561378.azurewebsites.net/index.html](https://direitofacil-rm561378.azurewebsites.net/index.html) |
+| Health check | [https://direitofacil-rm561378.azurewebsites.net/health](https://direitofacil-rm561378.azurewebsites.net/health) |
+| Liveness | [https://direitofacil-rm561378.azurewebsites.net/health/live](https://direitofacil-rm561378.azurewebsites.net/health/live) |
+| Banco de dados (Oracle FIAP, em nuvem) | `oracle.fiap.com.br:1521/orcl` |
+
 ---
 
-# Membros
+## Membros
 
 | RM | Nome completo | Turma | GitHub | LinkedIn |
 |---|---|---|---|---|
@@ -18,6 +27,8 @@ Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Clou
 
 ## Sumário
 
+- [Links da aplicação](#links-da-aplicação)
+- [Membros](#membros)
 - [Descrição do Projeto](#descrição-do-projeto)
 - [Benefícios para o Cidadão e para a Gestão Pública](#benefícios-para-o-cidadão-e-para-a-gestão-pública)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
@@ -43,6 +54,7 @@ Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Clou
 - [CRUD direto no Oracle (comprovação no banco em nuvem)](#crud-direto-no-oracle-comprovação-no-banco-em-nuvem)
 - [Códigos HTTP utilizados](#códigos-http-utilizados)
 - [Observações importantes](#observações-importantes)
+- [Evidências de funcionamento](#evidências-de-funcionamento)
 - [Uso de IA generativa](#uso-de-ia-generativa)
 
 ---
@@ -89,7 +101,7 @@ ODS: 3 (Saúde e bem-estar), 10 (Redução das desigualdades) e 11 (Cidades e co
 * Autenticação JWT (Microsoft.AspNetCore.Authentication.JwtBearer)
 * Rate Limiting nativo do ASP.NET Core
 * Microsoft.Extensions.Diagnostics.HealthChecks
-* RabbitMQ (RabbitMQ.Client) com padrão outbox
+* RabbitMQ (RabbitMQ.Client) com padrão outbox — broker gerenciado no CloudAMQP (RabbitMQ 4.x)
 * Azure Blob Storage (opcional) ou pasta local para os arquivos
 * xUnit + SQLite em memória + WebApplicationFactory (testes)
 * Rider / Visual Studio
@@ -136,7 +148,7 @@ DireitoFacil
 ├── DireitoFacil.Domain.Tests
 ├── DireitoFacil.Infrastructure.Tests
 ├── scripts/            (infra-direitofacil.sh, script-bd.sql, crud-demo.sql)
-├── docs/               (diagrama da arquitetura)
+├── docs/               (diagrama da arquitetura e evidências de funcionamento)
 └── azure-pipeline.yml
 ```
 
@@ -177,7 +189,7 @@ Persistência e integrações.
 * Hash de senha (PBKDF2)
 * Storage local ou Azure Blob
 * Outbox + `OutboxWorker` + publicação no RabbitMQ
-* Seed das contas GESTOR e SERVICO e do catálogo de documentos obrigatórios
+* Seed da conta GESTOR (e, opcionalmente, SERVICO) e do catálogo de documentos obrigatórios
 
 ---
 
@@ -312,7 +324,7 @@ Data Source=oracle.fiap.com.br:1521/orcl;User ID=SEU_RM;Password=SUA_SENHA;
 
 ## Migrations e script do banco
 
-A API usa **EF Core Migrations**. Na inicialização ela aplica as migrations pendentes e roda o seed (contas GESTOR e SERVICO e catálogo de documentos obrigatórios). Para desligar, use `Database:AplicarMigrations=false`.
+A API usa **EF Core Migrations**. Na inicialização ela aplica as migrations pendentes e roda o seed (conta GESTOR, conta SERVICO se configurada e catálogo de documentos obrigatórios). Para desligar, use `Database:AplicarMigrations=false`.
 
 ### Criar migration
 
@@ -362,19 +374,19 @@ Exemplo de resposta:
 
 ```json
 {
-  "status": "Degraded",
+  "status": "Healthy",
   "totalDurationMs": 412.7,
   "checks": [
     { "name": "self", "status": "Healthy", "description": "O processo da API está no ar.", "durationMs": 0.1, "error": null },
-    { "name": "oracle", "status": "Healthy", "description": "...", "durationMs": 380.2, "error": null },
-    { "name": "storage", "status": "Healthy", "description": "...", "durationMs": 2.4, "error": null },
-    { "name": "rabbitmq", "status": "Degraded", "description": "RabbitMQ não configurado: eventos acumulando no outbox.", "durationMs": 0.3, "error": null },
+    { "name": "oracle", "status": "Healthy", "description": "…", "durationMs": 380.2, "error": null },
+    { "name": "storage", "status": "Healthy", "description": "…", "durationMs": 2.4, "error": null },
+    { "name": "rabbitmq", "status": "Healthy", "description": "RabbitMQ acessível.", "durationMs": 0.3, "error": null },
     { "name": "api-java", "status": "Healthy", "description": "API Java não configurada para monitoramento.", "durationMs": 0.2, "error": null }
   ]
 }
 ```
 
-> Checks: `self` (único usado pelo `/health/live`), `oracle`, `storage`, `rabbitmq` e `api-java`. O detalhe da exceção (`error`) só é exibido em Development, para não vazar informação em produção.
+> Exemplo resumido (descrições do Oracle e do storage abreviadas). Checks: `self` (único usado pelo `/health/live`), `oracle`, `storage`, `rabbitmq` e `api-java`. O detalhe da exceção (`error`) só é exibido em Development, para não vazar informação em produção.
 
 ### Logs
 
@@ -404,7 +416,7 @@ O `GlobalExceptionHandler` converte qualquer exceção em `application/problem+j
 2. Faz login em `POST /api/auth/login` e recebe o `accessToken`.
 3. Envia `Authorization: Bearer {accessToken}` em todas as demais chamadas.
 
-As contas **GESTOR** (assistente social) e **SERVICO** (API Java) não se cadastram pela API: são criadas pelo seed a partir das configurações `Seed:Gestor` e `Seed:Servico`.
+A conta **GESTOR** (assistente social) não se cadastra pela API: é criada pelo seed a partir de `Seed:Gestor`. A API Java não precisa de conta: ela gera o próprio token de papel **SERVICO** (validade de 5 minutos), assinado com a mesma chave JWT. A conta `Seed:Servico` é opcional, para testar esse papel pelo Swagger.
 
 ### Papéis
 
@@ -413,6 +425,8 @@ As contas **GESTOR** (assistente social) e **SERVICO** (API Java) não se cadast
 | `CIDADAO` | Família | Enviar, corrigir e excluir os próprios documentos; criar, submeter e cancelar envios |
 | `GESTOR` | Assistente social | Ver a fila de envios e aprovar ou devolver |
 | `SERVICO` | API Java | Atualizar o status de processamento do documento |
+
+> No token (claim `role`) o papel aparece em maiúsculas (`CIDADAO`, `GESTOR`, `SERVICO`); no JSON de resposta e no banco (`DF_USUARIO.Papel`) aparece como o nome do enum (`Cidadao`, `Gestor`, `Servico`).
 
 ### Configuração
 
@@ -488,11 +502,14 @@ Campos do evento:
   "tipoDocumento": "Laudo",
   "contentType": "application/pdf",
   "blobPath": "maria@email.com/3fa85f64.pdf",
-  "criadoEm": "2026-11-15T22:00:00Z"
+  "criadoEm": "2026-11-15T22:00:00Z",
+  "arquivoUrl": "https://…/arquivo-temporario"
 }
 ```
 
 Na nuvem, o broker é um RabbitMQ gerenciado no **CloudAMQP** (plano gratuito Little Lemur), acessível pelas duas APIs pela internet via `amqps://`. A URL fica na variável secreta `RabbitMqUri` da pipeline.
+
+O `arquivoUrl` é uma URL temporária de leitura (validade de 60 minutos, `RabbitMq:ValidadeUrlMinutos`) gerada pelo `OutboxWorker` no momento da publicação, para não expirar enquanto o evento espera no outbox. Com o storage local, a API Java baixa o arquivo pelo `GET /api/documentos/{id}/arquivo` com o token SERVICO.
 
 Sem `RabbitMq:Uri` configurado, a API continua funcionando normalmente: os eventos ficam acumulados no outbox e o `/health` fica `Degraded`.
 
@@ -586,13 +603,11 @@ http://localhost:5264/health
 
 A API é publicada no **Azure App Service (Web App)** por uma pipeline YAML do **Azure DevOps** (`azure-pipeline.yml`, na raiz). Cada merge na branch `main` dispara a pipeline, que cria a infraestrutura (se ainda não existir), compila, roda os testes automatizados e faz o deploy, sem nenhum passo manual.
 
-- **API em produção (Swagger):** `https://direitofacil-rm561378.azurewebsites.net`
-- **Health check:** `https://direitofacil-rm561378.azurewebsites.net/health`
-- **Banco de dados em nuvem:** Oracle FIAP (`oracle.fiap.com.br:1521/orcl`)
+As URLs de produção estão em [Links da aplicação](#links-da-aplicação).
 
-### Diagrama da arquitetura + fluxo CI/CD
+### Fluxo CI/CD (numeração do diagrama)
 
-![Arquitetura e fluxo CI/CD do DireitoFácil](docs/arquitetura-cicd.png)
+Os números abaixo seguem o [diagrama da arquitetura](#diagrama-da-solução).
 
 | # | Etapa | Onde atua |
 |---|---|---|
@@ -639,6 +654,7 @@ Os recursos são criados pelo `scripts/infra-direitofacil.sh` (Azure CLI), que �
 | `scripts/script-bd.sql` | DDL dos objetos do banco (gerado por `dotnet ef migrations script --idempotent`) |
 | `scripts/crud-demo.sql` | CRUD de todas as tabelas, executado direto no Oracle |
 | `docs/arquitetura-cicd.drawio` / `.png` | Desenho macro da arquitetura |
+| `docs/evidencias/` | Prints do Oracle em nuvem e da fila no RabbitMQ |
 
 ### Configuração no Azure DevOps
 
@@ -672,10 +688,11 @@ az group delete --name "rg-direitofacil" --yes --no-wait
 | Serviço | Onde | URL |
 |---|---|---|
 | DireitoFácil API (local) | `dotnet run` | `http://localhost:5264/api/...` |
-| Swagger UI (local) | `dotnet run` | `http://localhost:5264` |
+| Swagger UI (local) | `dotnet run` | `http://localhost:5264/index.html` |
 | DireitoFácil API (nuvem) | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net/api/...` |
-| Swagger UI (nuvem) | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net` |
+| Swagger UI (nuvem) | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net/index.html` |
 | Oracle FIAP | Nuvem | `oracle.fiap.com.br:1521/orcl` |
+| RabbitMQ (CloudAMQP) | Nuvem | `amqps://…rmq6.cloudamqp.com` (porta 5671, TLS) |
 
 ---
 
@@ -692,7 +709,7 @@ Localmente as chaves vêm do User Secrets (com `:`); no Azure, das App Settings 
 | `ASPNETCORE_ENVIRONMENT` | `Development` (local) / `Production` (nuvem) | Ambiente de execução |
 | `Database__AplicarMigrations` | `true` | Aplica migrations e seed na inicialização |
 | `Seed__Gestor__Email` / `Seed__Gestor__Senha` | _(vazio)_ | Conta GESTOR criada no seed |
-| `Seed__Servico__Email` / `Seed__Servico__Senha` | _(vazio)_ | Conta SERVICO usada pela API Java |
+| `Seed__Servico__Email` / `Seed__Servico__Senha` | _(vazio)_ | Conta SERVICO opcional (testes pelo Swagger; a API Java gera o próprio token) |
 | `Storage__Provider` | `Local` | `Local` ou `AzureBlob` |
 | `Storage__PastaLocal` | `arquivos` | Pasta dos arquivos (nuvem: `D:\home\data\arquivos`) |
 | `Storage__AzureConnectionString` / `Storage__Container` | _(vazio)_ / `documentos` | Usados quando o provider é `AzureBlob` |
@@ -750,10 +767,7 @@ Ciclo do documento: `Recebido → Processando → Extraido` ou `Falha`. Um docum
 
 ### Health
 
-| Método | Rota | Descrição |
-|---|---|---|
-| GET | `/health` | Saúde completa (processo, Oracle, storage, RabbitMQ, API Java) |
-| GET | `/health/live` | Só o processo |
+`GET /health` e `GET /health/live` — detalhes em [Observabilidade e Monitoramento](#observabilidade-e-monitoramento).
 
 ---
 
@@ -1114,6 +1128,37 @@ Os enums são trafegados e gravados como **texto** (`"Laudo"`, `"Enviado"`, `"Ci
 ### Commit no Oracle
 
 Em ferramentas com transação manual (Rider, SQL Developer), rode `COMMIT` depois de cada `INSERT`, `UPDATE` e `DELETE` para que a API e as outras sessões vejam a alteração.
+
+---
+
+## Evidências de funcionamento
+
+### API em produção
+
+A API publicada pela pipeline responde em [`/health`](https://direitofacil-rm561378.azurewebsites.net/health) com todos os checks `Healthy` (Oracle, storage e RabbitMQ) e o Swagger fica em [`/index.html`](https://direitofacil-rm561378.azurewebsites.net/index.html).
+
+### Banco de dados em nuvem (Oracle FIAP)
+
+Conexão ao servidor remoto `oracle.fiap.com.br` (servidor `oraclenew`, banco `ORCL`, usuário `RM561378`) — o IP do cliente foi ocultado:
+
+![Conexão ao Oracle FIAP](docs/evidencias/oracle-conexao-nuvem.png)
+
+As 7 tabelas `DF_*` criadas pelo `scripts/script-bd.sql` durante o CI:
+
+![Tabelas DF_ no Oracle](docs/evidencias/oracle-tabelas-df.png)
+
+### Mensageria (RabbitMQ no CloudAMQP)
+
+Fila `documentos.recebidos` (durável) no RabbitMQ 4.3.6 gerenciado pelo CloudAMQP, com os eventos `DocumentoRecebido` publicados pelo `OutboxWorker` da API em produção, aguardando o consumo pela API Java:
+
+![Fila documentos.recebidos no RabbitMQ](docs/evidencias/rabbitmq-fila-documentos-recebidos.png)
+
+Para conferir no banco que os eventos foram publicados (`ProcessadoEm` preenchido e `UltimoErro` vazio):
+
+```sql
+SELECT RAWTOHEX("Id") AS ID, "Tipo", "Tentativas", "ProcessadoEm", "UltimoErro"
+FROM "DF_OUTBOX" ORDER BY "CriadoEm" DESC;
+```
 
 ---
 
