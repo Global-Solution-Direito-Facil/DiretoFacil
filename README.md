@@ -4,6 +4,11 @@
 
 Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Cloud Computing**.
 
+# Link do vídeo 
+| Recurso | URL |
+|---|---|
+| Youtube | https://youtu.be/obbbRXlLFy8
+
 ## Links da aplicação
 
 | Recurso | URL |
