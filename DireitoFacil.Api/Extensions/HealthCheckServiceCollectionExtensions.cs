@@ -13,7 +13,7 @@ public static class HealthCheckServiceCollectionExtensions
         services.AddHttpClient(nameof(ServicoExternoHealthCheck));
 
         services.AddHealthChecks()
-            .AddCheck("self", () => HealthCheckResult.Healthy("O processo da API está no ar."), tags: ["live"])
+            .AddCheck("self", () => HealthCheckResult.Healthy("O processo da API está no ar e funcional."), tags: ["live"])
             .AddCheck<OracleHealthCheck>("oracle", tags: ["ready", "db"])
             .AddCheck<StorageHealthCheck>("storage", tags: ["ready"])
             .AddCheck<RabbitMqHealthCheck>("rabbitmq", tags: ["ready", "external"])
