@@ -4,11 +4,6 @@
 
 Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Cloud Computing**.
 
-# Link do vídeo 
-| Recurso | URL |
-|---|---|
-| Youtube | https://youtu.be/obbbRXlLFy8
-
 ## Links da aplicação
 
 | Recurso | URL |
@@ -73,7 +68,7 @@ O **DireitoFácil** lê o laudo, indica os direitos e acompanha cada pedido até
 1. O cidadão envia o laudo e os demais documentos pelo app (upload seguro, com consentimento explícito para dado de saúde).
 2. A API grava o arquivo em storage privado e publica o evento `DocumentoRecebido` (padrão outbox) para o RabbitMQ.
 3. A API Java (Spring AI) consome o evento, extrai os dados do laudo e devolve o status do processamento (`PATCH /api/documentos/{id}/status`).
-4. O cidadão monta um **envio** para um direito (ex.: `CIPTEA`, `BPC_PCD`) e o submete. A API confere se todos os documentos obrigatórios daquele direito estão presentes.
+4. O cidadão monta um **envio** para um direito (ex.: `CIPTEA`, `BPC_PCD`, `TARIFA_SOCIAL_ENERGIA`) e o submete. A API confere se todos os documentos obrigatórios daquele direito estão presentes.
 5. O assistente social (papel `GESTOR`) aprova o envio ou o devolve com uma observação do que corrigir.
 
 A arquitetura segue os princípios de **Clean Architecture**, com separação entre domínio, aplicação, infraestrutura e apresentação. O banco de dados é o **Oracle** (Oracle FIAP, em nuvem), com o schema gerenciado por **Entity Framework Core Migrations**. A API é publicada no **Azure App Service** por uma esteira **CI/CD no Azure DevOps**.
@@ -233,7 +228,7 @@ Pedido de um direito: o pacote de documentos analisado pelo assistente social.
 * Id
 * CidadaoId
 * CasoId (caso aberto na API Java)
-* DireitoCodigo (ex.: `CIPTEA`, `BPC_PCD`)
+* DireitoCodigo (ex.: `CIPTEA`, `BPC_PCD`, `TARIFA_SOCIAL_ENERGIA`)
 * Status (`Rascunho`, `Enviado`, `Aprovado`, `Devolvido`, `Cancelado`)
 * Observacao
 * GestorId
@@ -259,11 +254,20 @@ Catálogo de documentos exigidos por direito (o checklist), criado pelo seed.
 | `CIPTEA` | Laudo, RG, CPF |
 | `ACOMPANHANTE_ESCOLAR_TEA` | Laudo |
 | `BPC_PCD` | Laudo, RG, CPF, comprovante de renda, comprovante de residência |
-| `BPC_IDOSO` | RG, CPF, comprovante de renda, comprovante de residência |
-| `CADUNICO` | RG, CPF, comprovante de renda, comprovante de residência |
-| `TARIFA_SOCIAL` | CPF, comprovante de residência |
-| `FARMACIA_POPULAR` | Receita, RG, CPF |
 | `PASSE_LIVRE_PCD` | Laudo, RG, CPF, comprovante de renda |
+| `ISENCAO_IPI_VEICULO_PCD` / `ISENCAO_IOF_VEICULO_PCD` | Laudo, RG, CPF |
+| `COTA_PCD_ENSINO_SUPERIOR` / `COTA_PCD_CONCURSO` / `COTA_PCD_EMPREGO` | Laudo, RG, CPF |
+| `PRIORIDADE_PCD` / `MEIA_ENTRADA_PCD` | Laudo, RG |
+| `CREDENCIAL_PCD` | Laudo, RG, comprovante de residência |
+| `BPC_IDOSO` | RG, CPF, comprovante de renda, comprovante de residência |
+| `PASSE_IDOSO_INTERESTADUAL` | RG, comprovante de renda |
+| `PRIORIDADE_IDOSO` | RG |
+| `ISENCAO_IR_65MAIS` | RG, CPF |
+| `CREDENCIAL_IDOSO` | RG, comprovante de residência |
+| `CADUNICO` / `BOLSA_FAMILIA` | RG, CPF, comprovante de renda, comprovante de residência |
+| `TARIFA_SOCIAL_ENERGIA` | CPF, comprovante de residência |
+
+São os 20 direitos do catálogo do Oracle (`T_DF_DIREITO.COD_DIREITO`), com os documentos tirados da base de conhecimento da API Java (`conhecimento/direitos.md`). A Farmácia Popular não entra: é uma consulta de medicamentos e não gera envio. Um teste (`Seed_DeveTerOs20DireitosDoCatalogoOracle`) garante que o catálogo da .NET tem exatamente esses 20 códigos.
 
 ### Tabelas de apoio
 
