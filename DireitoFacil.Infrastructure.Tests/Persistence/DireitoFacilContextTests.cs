@@ -117,4 +117,28 @@ public class DireitoFacilContextTests : IDisposable
         Assert.Contains(TipoDocumentoEnum.Laudo, tiposCiptea);
         Assert.Contains(TipoDocumentoEnum.Rg, tiposCiptea);
     }
+
+    [Fact]
+    public async Task Seed_DeveTerOs20DireitosDoCatalogoOracle()
+    {
+        // Arrange: os códigos do COD_DIREITO na T_DF_DIREITO (03_CARGA.sql do repositório do banco)
+        string[] esperados =
+        [
+            "ACOMPANHANTE_ESCOLAR_TEA", "BOLSA_FAMILIA", "BPC_IDOSO", "BPC_PCD", "CADUNICO", "CIPTEA",
+            "COTA_PCD_CONCURSO", "COTA_PCD_EMPREGO", "COTA_PCD_ENSINO_SUPERIOR", "CREDENCIAL_IDOSO",
+            "CREDENCIAL_PCD", "ISENCAO_IOF_VEICULO_PCD", "ISENCAO_IPI_VEICULO_PCD", "ISENCAO_IR_65MAIS",
+            "MEIA_ENTRADA_PCD", "PASSE_IDOSO_INTERESTADUAL", "PASSE_LIVRE_PCD", "PRIORIDADE_IDOSO",
+            "PRIORIDADE_PCD", "TARIFA_SOCIAL_ENERGIA"
+        ];
+
+        // Act
+        await using var contexto = _banco.NovoContexto();
+        var codigos = await contexto.DocumentosObrigatorios
+            .Select(o => o.DireitoCodigo)
+            .Distinct()
+            .ToListAsync();
+
+        // Assert: todos os direitos do Oracle podem virar envio, e nada além deles
+        Assert.Equal(esperados.Order(), codigos.Order());
+    }
 }

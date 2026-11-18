@@ -22,78 +22,6 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
 
             OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DireitoFacil.Infrastructure.Persistence.Models.IdempotencyRecord", b =>
-                {
-                    b.Property<Guid>("Chave")
-                        .HasColumnType("RAW(16)");
-
-                    b.Property<string>("UsuarioId")
-                        .HasMaxLength(254)
-                        .HasColumnType("NVARCHAR2(254)");
-
-                    b.Property<string>("Endpoint")
-                        .HasMaxLength(200)
-                        .HasColumnType("NVARCHAR2(200)");
-
-                    b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<DateTime>("ExpiraEm")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<string>("Fingerprint")
-                        .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("NVARCHAR2(64)");
-
-                    b.Property<string>("RespostaJson")
-                        .HasColumnType("CLOB");
-
-                    b.Property<int?>("StatusCode")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("Chave", "UsuarioId", "Endpoint");
-
-                    b.HasIndex("ExpiraEm");
-
-                    b.ToTable("DF_IDEMPOTENCIA", (string)null);
-                });
-
-            modelBuilder.Entity("DireitoFacil.Infrastructure.Persistence.Models.OutboxMessage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("RAW(16)");
-
-                    b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<string>("Payload")
-                        .IsRequired()
-                        .HasColumnType("CLOB");
-
-                    b.Property<DateTime?>("ProcessadoEm")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<int>("Tentativas")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("NVARCHAR2(100)");
-
-                    b.Property<string>("UltimoErro")
-                        .HasMaxLength(1000)
-                        .HasColumnType("NVARCHAR2(1000)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProcessadoEm", "CriadoEm");
-
-                    b.ToTable("DF_OUTBOX", (string)null);
-                });
-
             modelBuilder.Entity("DireitoFacil.Domain.Entities.Documento", b =>
                 {
                     b.Property<Guid>("Id")
@@ -226,71 +154,6 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            DireitoCodigo = "BPC_IDOSO",
-                            TipoDocumento = "Rg"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "BPC_IDOSO",
-                            TipoDocumento = "Cpf"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "BPC_IDOSO",
-                            TipoDocumento = "ComprovanteRenda"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "BPC_IDOSO",
-                            TipoDocumento = "ComprovanteResidencia"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "CADUNICO",
-                            TipoDocumento = "Rg"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "CADUNICO",
-                            TipoDocumento = "Cpf"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "CADUNICO",
-                            TipoDocumento = "ComprovanteRenda"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "CADUNICO",
-                            TipoDocumento = "ComprovanteResidencia"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "TARIFA_SOCIAL",
-                            TipoDocumento = "Cpf"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "TARIFA_SOCIAL",
-                            TipoDocumento = "ComprovanteResidencia"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "FARMACIA_POPULAR",
-                            TipoDocumento = "Receita"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "FARMACIA_POPULAR",
-                            TipoDocumento = "Rg"
-                        },
-                        new
-                        {
-                            DireitoCodigo = "FARMACIA_POPULAR",
-                            TipoDocumento = "Cpf"
-                        },
-                        new
-                        {
                             DireitoCodigo = "PASSE_LIVRE_PCD",
                             TipoDocumento = "Laudo"
                         },
@@ -308,6 +171,221 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                         {
                             DireitoCodigo = "PASSE_LIVRE_PCD",
                             TipoDocumento = "ComprovanteRenda"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IPI_VEICULO_PCD",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IPI_VEICULO_PCD",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IPI_VEICULO_PCD",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IOF_VEICULO_PCD",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IOF_VEICULO_PCD",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IOF_VEICULO_PCD",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_ENSINO_SUPERIOR",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_ENSINO_SUPERIOR",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_ENSINO_SUPERIOR",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_CONCURSO",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_CONCURSO",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_CONCURSO",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_EMPREGO",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_EMPREGO",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "COTA_PCD_EMPREGO",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "PRIORIDADE_PCD",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "PRIORIDADE_PCD",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "MEIA_ENTRADA_PCD",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "MEIA_ENTRADA_PCD",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CREDENCIAL_PCD",
+                            TipoDocumento = "Laudo"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CREDENCIAL_PCD",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CREDENCIAL_PCD",
+                            TipoDocumento = "ComprovanteResidencia"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BPC_IDOSO",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BPC_IDOSO",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BPC_IDOSO",
+                            TipoDocumento = "ComprovanteRenda"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BPC_IDOSO",
+                            TipoDocumento = "ComprovanteResidencia"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "PASSE_IDOSO_INTERESTADUAL",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "PASSE_IDOSO_INTERESTADUAL",
+                            TipoDocumento = "ComprovanteRenda"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "PRIORIDADE_IDOSO",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IR_65MAIS",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "ISENCAO_IR_65MAIS",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CREDENCIAL_IDOSO",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CREDENCIAL_IDOSO",
+                            TipoDocumento = "ComprovanteResidencia"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CADUNICO",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CADUNICO",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CADUNICO",
+                            TipoDocumento = "ComprovanteRenda"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "CADUNICO",
+                            TipoDocumento = "ComprovanteResidencia"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BOLSA_FAMILIA",
+                            TipoDocumento = "Rg"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BOLSA_FAMILIA",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BOLSA_FAMILIA",
+                            TipoDocumento = "ComprovanteRenda"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "BOLSA_FAMILIA",
+                            TipoDocumento = "ComprovanteResidencia"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "TARIFA_SOCIAL_ENERGIA",
+                            TipoDocumento = "Cpf"
+                        },
+                        new
+                        {
+                            DireitoCodigo = "TARIFA_SOCIAL_ENERGIA",
+                            TipoDocumento = "ComprovanteResidencia"
                         });
                 });
 
@@ -417,6 +495,78 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("DF_USUARIO", (string)null);
+                });
+
+            modelBuilder.Entity("DireitoFacil.Infrastructure.Persistence.Models.IdempotencyRecord", b =>
+                {
+                    b.Property<Guid>("Chave")
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<string>("UsuarioId")
+                        .HasMaxLength(254)
+                        .HasColumnType("NVARCHAR2(254)");
+
+                    b.Property<string>("Endpoint")
+                        .HasMaxLength(200)
+                        .HasColumnType("NVARCHAR2(200)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<DateTime>("ExpiraEm")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<string>("Fingerprint")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("NVARCHAR2(64)");
+
+                    b.Property<string>("RespostaJson")
+                        .HasColumnType("CLOB");
+
+                    b.Property<int?>("StatusCode")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.HasKey("Chave", "UsuarioId", "Endpoint");
+
+                    b.HasIndex("ExpiraEm");
+
+                    b.ToTable("DF_IDEMPOTENCIA", (string)null);
+                });
+
+            modelBuilder.Entity("DireitoFacil.Infrastructure.Persistence.Models.OutboxMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("RAW(16)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("CLOB");
+
+                    b.Property<DateTime?>("ProcessadoEm")
+                        .HasColumnType("TIMESTAMP(7)");
+
+                    b.Property<int>("Tentativas")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("NVARCHAR2(100)");
+
+                    b.Property<string>("UltimoErro")
+                        .HasMaxLength(1000)
+                        .HasColumnType("NVARCHAR2(1000)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProcessadoEm", "CriadoEm");
+
+                    b.ToTable("DF_OUTBOX", (string)null);
                 });
 
             modelBuilder.Entity("DireitoFacil.Domain.Entities.EnvioDocumento", b =>

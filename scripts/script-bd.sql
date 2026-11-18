@@ -388,3 +388,176 @@ END;
 
 /
 
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'DELETE FROM "DF_DOCUMENTO_OBRIGATORIO"
+    WHERE "DireitoCodigo" = N''FARMACIA_POPULAR'' AND "TipoDocumento" = N''Cpf'''
+    ;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'DELETE FROM "DF_DOCUMENTO_OBRIGATORIO"
+    WHERE "DireitoCodigo" = N''FARMACIA_POPULAR'' AND "TipoDocumento" = N''Receita'''
+    ;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'DELETE FROM "DF_DOCUMENTO_OBRIGATORIO"
+    WHERE "DireitoCodigo" = N''FARMACIA_POPULAR'' AND "TipoDocumento" = N''Rg'''
+    ;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'DELETE FROM "DF_DOCUMENTO_OBRIGATORIO"
+    WHERE "DireitoCodigo" = N''TARIFA_SOCIAL'' AND "TipoDocumento" = N''ComprovanteResidencia'''
+    ;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'DELETE FROM "DF_DOCUMENTO_OBRIGATORIO"
+    WHERE "DireitoCodigo" = N''TARIFA_SOCIAL'' AND "TipoDocumento" = N''Cpf'''
+    ;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    BEGIN
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'BOLSA_FAMILIA', N'ComprovanteRenda');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'BOLSA_FAMILIA', N'ComprovanteResidencia');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'BOLSA_FAMILIA', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'BOLSA_FAMILIA', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_CONCURSO', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_CONCURSO', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_CONCURSO', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_EMPREGO', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_EMPREGO', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_EMPREGO', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_ENSINO_SUPERIOR', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_ENSINO_SUPERIOR', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'COTA_PCD_ENSINO_SUPERIOR', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'CREDENCIAL_IDOSO', N'ComprovanteResidencia');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'CREDENCIAL_IDOSO', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'CREDENCIAL_PCD', N'ComprovanteResidencia');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'CREDENCIAL_PCD', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'CREDENCIAL_PCD', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IOF_VEICULO_PCD', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IOF_VEICULO_PCD', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IOF_VEICULO_PCD', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IPI_VEICULO_PCD', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IPI_VEICULO_PCD', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IPI_VEICULO_PCD', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IR_65MAIS', N'Cpf');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'ISENCAO_IR_65MAIS', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'MEIA_ENTRADA_PCD', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'MEIA_ENTRADA_PCD', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'PASSE_IDOSO_INTERESTADUAL', N'ComprovanteRenda');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'PASSE_IDOSO_INTERESTADUAL', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'PRIORIDADE_IDOSO', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'PRIORIDADE_PCD', N'Laudo');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'PRIORIDADE_PCD', N'Rg');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'TARIFA_SOCIAL_ENERGIA', N'ComprovanteResidencia');
+    INSERT INTO "DF_DOCUMENTO_OBRIGATORIO" ("DireitoCodigo", "TipoDocumento")
+    VALUES (N'TARIFA_SOCIAL_ENERGIA', N'Cpf');
+    END;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118012908_AtualizaCatalogoDireitos';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+    VALUES (N''20261118012908_AtualizaCatalogoDireitos'', N''10.0.8'')'
+    ;
+ END IF;
+END;
+
+/
+

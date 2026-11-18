@@ -158,14 +158,14 @@ public class EnvioEndpointsTests(DireitoFacilApiFactory factory) : IClassFixture
         Assert.DoesNotContain(fila.Items, e => e.Id == rascunho.Id);
     }
 
-    /// <summary>Cria e submete um envio de TARIFA_SOCIAL com os documentos exigidos (CPF + comprovante de residência).</summary>
+    /// <summary>Cria e submete um envio de TARIFA_SOCIAL_ENERGIA com os documentos exigidos (CPF + comprovante de residência).</summary>
     private static async Task<Guid> EnviarCompletoAsync(ClienteAutenticado cidadao)
     {
         var cpf = await cidadao.Client.CriarDocumentoAsync(TipoDocumentoEnum.Cpf);
         var residencia = await cidadao.Client.CriarDocumentoAsync(TipoDocumentoEnum.ComprovanteResidencia);
 
         var envio = await (await cidadao.Client.PostJsonAsync("/api/envios",
-            new CriarEnvioRequest(1, "TARIFA_SOCIAL", [cpf.Id, residencia.Id]))).LerAsync<EnvioResponse>();
+            new CriarEnvioRequest(1, "TARIFA_SOCIAL_ENERGIA", [cpf.Id, residencia.Id]))).LerAsync<EnvioResponse>();
 
         var submeter = await cidadao.Client.PostJsonAsync($"/api/envios/{envio.Id}/submeter");
         Assert.Equal(HttpStatusCode.OK, submeter.StatusCode);
