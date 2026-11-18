@@ -25,4 +25,11 @@ public sealed class DocumentoUploadForm
     /// <summary>Descrição opcional.</summary>
     [StringLength(300, ErrorMessage = "A descrição deve ter no máximo 300 caracteres")]
     public string? Descricao { get; set; }
+
+    /// <summary>
+    /// Familiar a quem o documento pertence (id da pessoa cadastrada na API Java).
+    /// Opcional: obrigatório na prática só quando a conta tem mais de um familiar.
+    /// </summary>
+    [Range(1, long.MaxValue, ErrorMessage = "O familiar informado é inválido")]
+    public long? PessoaId { get; set; }
 }

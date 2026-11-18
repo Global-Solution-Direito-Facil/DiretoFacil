@@ -6,10 +6,9 @@ Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Clou
 
 ## Links da aplicação
 
-
 | Recurso | URL |
 |---|---|
-| Vídeo da solução (YouTube) | https://youtu.be/obbbRXlLFy8
+| Vídeo da solução (YouTube) | [https://youtu.be/obbbRXlLFy8](https://youtu.be/obbbRXlLFy8) |
 | Swagger (API em produção) | [https://direitofacil-rm561378.azurewebsites.net/index.html](https://direitofacil-rm561378.azurewebsites.net/index.html) |
 | Health check | [https://direitofacil-rm561378.azurewebsites.net/health](https://direitofacil-rm561378.azurewebsites.net/health) |
 | Liveness | [https://direitofacil-rm561378.azurewebsites.net/health/live](https://direitofacil-rm561378.azurewebsites.net/health/live) |
@@ -220,6 +219,7 @@ Arquivo enviado pelo cidadão (laudo, receita, RG, comprovantes).
 * BlobPath (caminho no storage privado)
 * HashSha256 (impede o mesmo arquivo duas vezes para o mesmo cidadão)
 * Status (`Recebido`, `Processando`, `Extraido`, `Falha`)
+* PessoaId (opcional: familiar a quem o documento pertence, cadastrado na API Java)
 * ConsentimentoSaude / ConsentimentoSaudeEm
 * CriadoEm / AtualizadoEm
 
@@ -510,6 +510,7 @@ Campos do evento:
   "eventId": "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
   "documentoId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "cidadaoId": "maria@email.com",
+  "pessoaId": 7,
   "tipoDocumento": "Laudo",
   "contentType": "application/pdf",
   "blobPath": "maria@email.com/3fa85f64.pdf",
@@ -521,6 +522,8 @@ Campos do evento:
 Na nuvem, o broker é um RabbitMQ gerenciado no **CloudAMQP** (plano gratuito Little Lemur), acessível pelas duas APIs pela internet via `amqps://`. A URL fica na variável secreta `RabbitMqUri` da pipeline.
 
 O `arquivoUrl` é uma URL temporária de leitura (validade de 60 minutos, `RabbitMq:ValidadeUrlMinutos`) gerada pelo `OutboxWorker` no momento da publicação, para não expirar enquanto o evento espera no outbox. Com o storage local, a API Java baixa o arquivo pelo `GET /api/documentos/{id}/arquivo` com o token SERVICO.
+
+O `pessoaId` é o familiar escolhido no app ("de quem é este documento?"). A API Java confere se essa pessoa pertence à conta de quem enviou; quando o campo vem vazio e a conta tem um único familiar, ela deduz a pessoa sozinha.
 
 Sem `RabbitMq:Uri` configurado, a API continua funcionando normalmente: os eventos ficam acumulados no outbox e o `/health` fica `Degraded`.
 
@@ -539,7 +542,7 @@ A solução tem testes em **xUnit**, organizados por camada, espelhando a Clean 
 
 ### Executando os testes
 
-Rodar toda a suíte (169 testes):
+Rodar toda a suíte (174 testes):
 
 ```powershell
 dotnet test
@@ -745,7 +748,7 @@ Todos usam o prefixo `/api`. Com exceção de `auth`, todos exigem `Authorizatio
 
 | Método | Rota | Papel | Descrição |
 |---|---|---|---|
-| POST | `/api/documentos` | CIDADAO | Upload (`multipart/form-data`: `Arquivo`, `Tipo`, `ConsentimentoSaude`, `Descricao`). Idempotente |
+| POST | `/api/documentos` | CIDADAO | Upload (`multipart/form-data`: `Arquivo`, `Tipo`, `ConsentimentoSaude`, `Descricao`, `PessoaId`). Idempotente |
 | GET | `/api/documentos` | todos | Lista paginada (`page`, `pageSize`, `tipo`, `status`; `cidadaoId` só para gestor) |
 | GET | `/api/documentos/{id}` | todos | Detalhe |
 | GET | `/api/documentos/{id}/arquivo` | todos | Download do arquivo |
@@ -774,7 +777,7 @@ Rascunho ──submeter──▶ Enviado ──aprovar──▶ Aprovado
 Rascunho / Devolvido ──cancelar──▶ Cancelado
 ```
 
-Ciclo do documento: `Recebido → Processando → Extraido` ou `Falha`. Um documento com `Falha` impede a submissão do envio até ser reenviado.
+Ciclo do documento: `Recebido → Processando → Extraido` ou `Falha`. Um documento com `Falha` impede a submissão do envio; se uma nova leitura da IA der certo, ele passa de `Falha` para `Extraido` e volta a poder entrar no envio.
 
 ### Health
 
@@ -879,6 +882,7 @@ Content-Type: multipart/form-data
 | `Tipo` | `Laudo` |
 | `ConsentimentoSaude` | `true` (obrigatório para `Laudo`) |
 | `Descricao` | `Laudo neurológico` |
+| `PessoaId` | `7` (opcional: o familiar a quem o documento pertence, id da pessoa na API Java) |
 
 Resultado esperado: **201 Created**
 

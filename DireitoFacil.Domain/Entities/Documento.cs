@@ -30,6 +30,12 @@ public class Documento : BaseEntity
     /// <summary>Quando o titular deu o consentimento para dado de saúde (prova exigida pela LGPD).</summary>
     public DateTime? ConsentimentoSaudeEm { get; private set; }
 
+    /// <summary>
+    /// Familiar (beneficiário) a quem o documento pertence, cadastrado na API Java (T_DF_PESSOA).
+    /// Opcional: quando a conta tem um único familiar, a API Java deduz a pessoa sozinha.
+    /// </summary>
+    public long? PessoaId { get; private set; }
+
     protected Documento()
     {
     }
@@ -42,7 +48,8 @@ public class Documento : BaseEntity
         long tamanhoArquivo,
         string hashSha256,
         bool consentimentoSaude,
-        string? descricao = null)
+        string? descricao = null,
+        long? pessoaId = null)
     {
         if (string.IsNullOrWhiteSpace(cidadaoId))
             throw new DomainException("O cidadão é obrigatório.");
@@ -59,6 +66,9 @@ public class Documento : BaseEntity
         if (string.IsNullOrWhiteSpace(hashSha256))
             throw new DomainException("O hash do arquivo é obrigatório.");
 
+        if (pessoaId is <= 0)
+            throw new DomainException("O familiar informado é inválido.");
+
         ValidarConsentimento(tipo, consentimentoSaude);
 
         CidadaoId = cidadaoId;
@@ -70,6 +80,7 @@ public class Documento : BaseEntity
         ConsentimentoSaude = consentimentoSaude;
         ConsentimentoSaudeEm = consentimentoSaude ? DateTime.UtcNow : null;
         Descricao = descricao?.Trim();
+        PessoaId = pessoaId;
         BlobPath = $"{cidadaoId}/{Id:N}";
         Status = StatusDocumentoEnum.Recebido;
     }
@@ -107,13 +118,15 @@ public class Documento : BaseEntity
 
     /// <summary>
     /// Idempotente: se o Java reenviar o mesmo resultado, não gera erro.
+    /// Aceita também um documento em Falha: se uma nova leitura der certo (ex.: a IA estava
+    /// fora do ar na primeira tentativa), o documento passa a Extraido e pode entrar num envio.
     /// </summary>
     public void MarcarExtraido()
     {
         if (Status == StatusDocumentoEnum.Extraido)
             return;
 
-        if (Status is not (StatusDocumentoEnum.Recebido or StatusDocumentoEnum.Processando))
+        if (Status is not (StatusDocumentoEnum.Recebido or StatusDocumentoEnum.Processando or StatusDocumentoEnum.Falha))
             throw new RegraDeNegocioException($"Não é possível marcar como extraído um documento {Status}.");
 
         Status = StatusDocumentoEnum.Extraido;

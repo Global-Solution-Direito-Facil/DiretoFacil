@@ -1,3 +1,4 @@
+using DireitoFacil.Domain.Entities;
 using DireitoFacil.Domain.Enums;
 using DireitoFacil.Domain.Exceptions;
 
@@ -210,5 +211,42 @@ public class DocumentoTests
 
         // Assert
         Assert.Equal(dataOriginal, documento.ConsentimentoSaudeEm);
+    }
+
+    [Fact]
+    public void MarcarExtraido_DocumentoEmFalha_DevePassarParaExtraido()
+    {
+        // Arrange: a primeira leitura falhou (ex.: IA fora do ar)
+        var documento = Fakes.Documento();
+        documento.IniciarProcessamento();
+        documento.MarcarFalha();
+
+        // Act: uma nova leitura deu certo
+        documento.MarcarExtraido();
+
+        // Assert
+        Assert.Equal(StatusDocumentoEnum.Extraido, documento.Status);
+    }
+
+    [Fact]
+    public void Construtor_ComPessoaId_DeveGuardarFamiliar()
+    {
+        // Act
+        var documento = new Documento(Fakes.CidadaoA, TipoDocumentoEnum.Rg, "rg.pdf", "application/pdf", 1024, "ABC123", false, null, 42);
+
+        // Assert
+        Assert.Equal<long?>(42L, documento.PessoaId);
+    }
+
+    [Theory]
+    [InlineData(0L)]
+    [InlineData(-1L)]
+    public void Construtor_PessoaIdInvalido_DeveLancarDomainException(long pessoaId)
+    {
+        // Act
+        var act = () => new Documento(Fakes.CidadaoA, TipoDocumentoEnum.Rg, "rg.pdf", "application/pdf", 1024, "ABC123", false, null, pessoaId);
+
+        // Assert
+        Assert.Throws<DomainException>(act);
     }
 }

@@ -18,7 +18,8 @@ public record DocumentoResponse(
     bool ConsentimentoSaude,
     DateTime? ConsentimentoSaudeEm,
     DateTime CriadoEm,
-    DateTime? AtualizadoEm)
+    DateTime? AtualizadoEm,
+    long? PessoaId = null)
 {
     public static DocumentoResponse FromDomain(Documento documento) => new(
         documento.Id,
@@ -32,5 +33,6 @@ public record DocumentoResponse(
         documento.ConsentimentoSaude,
         documento.ConsentimentoSaudeEm,
         documento.CriadoEm,
-        documento.AtualizadoEm);
+        documento.AtualizadoEm,
+        documento.PessoaId);
 }

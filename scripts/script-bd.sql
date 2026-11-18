@@ -561,3 +561,32 @@ END;
 
 /
 
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118022224_DocumentoPessoaId';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'ALTER TABLE "DF_DOCUMENTO" ADD "PessoaId" NUMBER(19)'
+    ;
+ END IF;
+END;
+
+/
+
+DECLARE
+    v_Count INTEGER;
+BEGIN
+SELECT COUNT(*) INTO v_Count FROM "__EFMigrationsHistory" WHERE "MigrationId" = N'20261118022224_DocumentoPessoaId';
+IF v_Count = 0 THEN
+
+    EXECUTE IMMEDIATE 
+    'INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+    VALUES (N''20261118022224_DocumentoPessoaId'', N''10.0.8'')'
+    ;
+ END IF;
+END;
+
+/
+

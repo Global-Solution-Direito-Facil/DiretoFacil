@@ -48,6 +48,23 @@ public class DocumentoServiceTests
     }
 
     [Fact]
+    public async Task CriarAsync_ComPessoaId_DeveGuardarNoDocumentoEColocarNoEvento()
+    {
+        // Arrange
+        var service = CriarService();
+        var request = new CriarDocumentoRequest(TipoDocumentoEnum.Laudo, true, "Laudo do Lucas", PessoaId: 7);
+
+        // Act
+        var response = await service.CriarAsync(request, Dados.Upload(Dados.PdfBytes()));
+
+        // Assert
+        Assert.Equal<long?>(7L, response.PessoaId);
+        Assert.Equal<long?>(7L, Assert.Single(_banco.Documentos).PessoaId);
+        var evento = Assert.IsType<DocumentoRecebidoEvent>(Assert.Single(_eventos.Eventos));
+        Assert.Equal<long?>(7L, evento.PessoaId);
+    }
+
+    [Fact]
     public async Task CriarAsync_MesmoArquivoDuasVezes_DeveLancarRegraDeNegocioException()
     {
         // Arrange

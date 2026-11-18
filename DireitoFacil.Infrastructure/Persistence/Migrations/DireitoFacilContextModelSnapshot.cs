@@ -69,6 +69,9 @@ namespace DireitoFacil.Infrastructure.Persistence.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("NVARCHAR2(255)");
 
+                    b.Property<long?>("PessoaId")
+                        .HasColumnType("NUMBER(19)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)

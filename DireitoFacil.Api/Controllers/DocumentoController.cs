@@ -51,7 +51,7 @@ public class DocumentoController(IDocumentoService documentoService) : Controlle
         await using var conteudo = form.Arquivo.OpenReadStream();
 
         var arquivo = new ArquivoUpload(form.Arquivo.FileName, form.Arquivo.ContentType, form.Arquivo.Length, conteudo);
-        var request = new CriarDocumentoRequest(form.Tipo!.Value, form.ConsentimentoSaude, form.Descricao);
+        var request = new CriarDocumentoRequest(form.Tipo!.Value, form.ConsentimentoSaude, form.Descricao, form.PessoaId);
 
         var documento = await documentoService.CriarAsync(request, arquivo, cancellationToken);
         return CreatedAtAction(nameof(ObterPorId), new { id = documento.Id }, documento);

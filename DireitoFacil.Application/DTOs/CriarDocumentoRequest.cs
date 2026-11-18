@@ -9,6 +9,7 @@ namespace DireitoFacil.Application.DTOs;
 /// <param name="Tipo">Tipo do documento.</param>
 /// <param name="ConsentimentoSaude">Consentimento específico para dado de saúde. Obrigatório para LAUDO (LGPD, art. 11).</param>
 /// <param name="Descricao">Descrição opcional.</param>
+/// <param name="PessoaId">Familiar a quem o documento pertence (id da pessoa na API Java). Opcional.</param>
 public record CriarDocumentoRequest(
     [Required(ErrorMessage = "O tipo do documento é obrigatório")]
     [EnumDataType(typeof(TipoDocumentoEnum), ErrorMessage = "Tipo de documento inválido")]
@@ -17,5 +18,8 @@ public record CriarDocumentoRequest(
     bool ConsentimentoSaude = false,
 
     [StringLength(300, ErrorMessage = "A descrição deve ter no máximo 300 caracteres")]
-    string? Descricao = null
+    string? Descricao = null,
+
+    [Range(1, long.MaxValue, ErrorMessage = "O familiar informado é inválido")]
+    long? PessoaId = null
 ) : IRequestDto;

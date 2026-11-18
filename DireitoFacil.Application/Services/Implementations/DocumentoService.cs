@@ -50,7 +50,8 @@ public sealed class DocumentoService(
             arquivo.TamanhoBytes,
             hash,
             request.ConsentimentoSaude,
-            request.Descricao);
+            request.Descricao,
+            request.PessoaId);
 
         await arquivoStorage.SalvarAsync(documento.BlobPath, conteudo, documento.ContentType, cancellationToken);
 
@@ -62,7 +63,8 @@ public sealed class DocumentoService(
             documento.Tipo.ToString(),
             documento.ContentType,
             documento.BlobPath,
-            DateTime.UtcNow));
+            DateTime.UtcNow,
+            documento.PessoaId));
 
         try
         {
