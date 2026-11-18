@@ -537,7 +537,7 @@ A solução tem testes em **xUnit**, organizados por camada, espelhando a Clean 
 
 ### Executando os testes
 
-Rodar toda a suíte (168 testes):
+Rodar toda a suíte (169 testes):
 
 ```powershell
 dotnet test
