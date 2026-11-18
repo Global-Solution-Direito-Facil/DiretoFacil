@@ -6,8 +6,10 @@ Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Clou
 
 ## Links da aplicação
 
+
 | Recurso | URL |
 |---|---|
+| Vídeo da solução (YouTube) | https://youtu.be/obbbRXlLFy8
 | Swagger (API em produção) | [https://direitofacil-rm561378.azurewebsites.net/index.html](https://direitofacil-rm561378.azurewebsites.net/index.html) |
 | Health check | [https://direitofacil-rm561378.azurewebsites.net/health](https://direitofacil-rm561378.azurewebsites.net/health) |
 | Liveness | [https://direitofacil-rm561378.azurewebsites.net/health/live](https://direitofacil-rm561378.azurewebsites.net/health/live) |
