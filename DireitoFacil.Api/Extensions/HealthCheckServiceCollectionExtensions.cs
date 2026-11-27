@@ -14,7 +14,7 @@ public static class HealthCheckServiceCollectionExtensions
 
         services.AddHealthChecks()
             .AddCheck("self", () => HealthCheckResult.Healthy("O processo da API está no ar."), tags: ["live"])
-            .AddCheck<OracleHealthCheck>("oracleDB", tags: ["ready", "db"])
+            .AddCheck<OracleHealthCheck>("oracle", tags: ["ready", "db"])
             .AddCheck<StorageHealthCheck>("storage", tags: ["ready"])
             .AddCheck<RabbitMqHealthCheck>("rabbitmq", tags: ["ready", "external"])
             .AddCheck<ServicoExternoHealthCheck>("api-java", tags: ["ready", "external"]);
