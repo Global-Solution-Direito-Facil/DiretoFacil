@@ -4,27 +4,29 @@
 
 Disciplinas: **Advanced Business Development with .NET** e **DevOps Tools & Cloud Computing**.
 
+Alteração para o prof
+
 ## Links da aplicação
 
-| Recurso | URL |
-|---|---|
-| Vídeo da solução (YouTube) | [https://youtu.be/obbbRXlLFy8](https://youtu.be/obbbRXlLFy8) |
-| Swagger (API em produção) | [https://direitofacil-rm561378.azurewebsites.net/index.html](https://direitofacil-rm561378.azurewebsites.net/index.html) |
-| Health check | [https://direitofacil-rm561378.azurewebsites.net/health](https://direitofacil-rm561378.azurewebsites.net/health) |
-| Liveness | [https://direitofacil-rm561378.azurewebsites.net/health/live](https://direitofacil-rm561378.azurewebsites.net/health/live) |
-| Banco de dados (Oracle FIAP, em nuvem) | `oracle.fiap.com.br:1521/orcl` |
+| Recurso                                | URL                                                                                                                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Vídeo da solução (YouTube)          | [https://youtu.be/obbbRXlLFy8](https://youtu.be/obbbRXlLFy8)                                                               |
+| Swagger (API em produção)            | [https://direitofacil-rm561378.azurewebsites.net/index.html](https://direitofacil-rm561378.azurewebsites.net/index.html)   |
+| Health check                           | [https://direitofacil-rm561378.azurewebsites.net/health](https://direitofacil-rm561378.azurewebsites.net/health)           |
+| Liveness                               | [https://direitofacil-rm561378.azurewebsites.net/health/live](https://direitofacil-rm561378.azurewebsites.net/health/live) |
+| Banco de dados (Oracle FIAP, em nuvem) | `oracle.fiap.com.br:1521/orcl`                                                                                          |
 
 ---
 
 ## Membros
 
-| RM | Nome completo | Turma | GitHub | LinkedIn |
-|---|---|---|---|---|
-| RM565594 | João Vitor Biribilli Ravelli | 2TDSPG | [biribillidev](https://github.com/biribillidev) | [LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-vitor-biribilli-ravelli-b9b447367/) |
-| RM564093 | Gabriel Neris Losano | 2TDSPG | [GNLosano](https://github.com/GNLosano) | [LinkedIn](https://www.linkedin.com/in/gabriellosano/) |
-| RM565554 | Alexander Dennis Isidro Mamani | 2TDSPG | [alex-isidro](https://github.com/alex-isidro) | [LinkedIn](https://www.linkedin.com/in/alexander-isidro/) |
-| RM563748 | Kelson Zhang | 2TDSPG | [KelsonZh0](https://github.com/KelsonZh0) | [LinkedIn](https://www.linkedin.com/in/kelson-zhang-211456323/) |
-| RM561378 | Pietro Paranhos Wilhelm | 2TDSPG | [PietroWilhelm](https://github.com/PietroWilhelm) | [LinkedIn](https://www.linkedin.com/in/pietrowilhelm/) |
+| RM       | Nome completo                  | Turma  | GitHub                                           | LinkedIn                                                                            |
+| -------- | ------------------------------ | ------ | ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| RM565594 | João Vitor Biribilli Ravelli  | 2TDSPG | [biribillidev](https://github.com/biribillidev)   | [LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-vitor-biribilli-ravelli-b9b447367/) |
+| RM564093 | Gabriel Neris Losano           | 2TDSPG | [GNLosano](https://github.com/GNLosano)           | [LinkedIn](https://www.linkedin.com/in/gabriellosano/)                               |
+| RM565554 | Alexander Dennis Isidro Mamani | 2TDSPG | [alex-isidro](https://github.com/alex-isidro)     | [LinkedIn](https://www.linkedin.com/in/alexander-isidro/)                            |
+| RM563748 | Kelson Zhang                   | 2TDSPG | [KelsonZh0](https://github.com/KelsonZh0)         | [LinkedIn](https://www.linkedin.com/in/kelson-zhang-211456323/)                      |
+| RM561378 | Pietro Paranhos Wilhelm        | 2TDSPG | [PietroWilhelm](https://github.com/PietroWilhelm) | [LinkedIn](https://www.linkedin.com/in/pietrowilhelm/)                               |
 
 ## Sumário
 
@@ -80,14 +82,14 @@ ODS: 3 (Saúde e bem-estar), 10 (Redução das desigualdades) e 11 (Cidades e co
 
 ## Benefícios para o Cidadão e para a Gestão Pública
 
-| Benefício | Descrição |
-|---|---|
+| Benefício                                    | Descrição                                                                                                                                            |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Checklist automático de documentos** | Cada direito tem a sua lista de documentos obrigatórios. A família descobre o que falta antes de ir ao órgão, e não depois de uma viagem perdida. |
-| **Menos pedidos indeferidos** | O envio só é submetido quando está completo, o que reduz retrabalho para a família e para o assistente social. |
-| **Fila de análise organizada** | O assistente social trabalha uma fila única (`status=Enviado`), aprova ou devolve com observação, e o histórico fica registrado. |
-| **Privacidade (LGPD)** | Consentimento explícito para dado de saúde, exclusão de documentos pelo próprio cidadão e eventos sem nome, CPF ou conteúdo do arquivo. |
-| **Funciona com internet instável** | A idempotência permite que o app reenvie a mesma requisição sem criar documentos ou envios duplicados. |
-| **Escalável e desacoplada** | O processamento por IA roda em outra API, ligada por fila. Se a IA estiver fora do ar, os eventos ficam guardados e são publicados depois. |
+| **Menos pedidos indeferidos**           | O envio só é submetido quando está completo, o que reduz retrabalho para a família e para o assistente social.                                     |
+| **Fila de análise organizada**         | O assistente social trabalha uma fila única (`status=Enviado`), aprova ou devolve com observação, e o histórico fica registrado.                 |
+| **Privacidade (LGPD)**                  | Consentimento explícito para dado de saúde, exclusão de documentos pelo próprio cidadão e eventos sem nome, CPF ou conteúdo do arquivo.          |
+| **Funciona com internet instável**     | A idempotência permite que o app reenvie a mesma requisição sem criar documentos ou envios duplicados.                                              |
+| **Escalável e desacoplada**            | O processamento por IA roda em outra API, ligada por fila. Se a IA estiver fora do ar, os eventos ficam guardados e são publicados depois.            |
 
 ---
 
@@ -251,32 +253,32 @@ Catálogo de documentos exigidos por direito (o checklist), criado pelo seed.
 * DireitoCodigo
 * TipoDocumento
 
-| Direito | Documentos obrigatórios |
-|---|---|
-| `CIPTEA` | Laudo, RG, CPF |
-| `ACOMPANHANTE_ESCOLAR_TEA` | Laudo |
-| `BPC_PCD` | Laudo, RG, CPF, comprovante de renda, comprovante de residência |
-| `PASSE_LIVRE_PCD` | Laudo, RG, CPF, comprovante de renda |
-| `ISENCAO_IPI_VEICULO_PCD` / `ISENCAO_IOF_VEICULO_PCD` | Laudo, RG, CPF |
-| `COTA_PCD_ENSINO_SUPERIOR` / `COTA_PCD_CONCURSO` / `COTA_PCD_EMPREGO` | Laudo, RG, CPF |
-| `PRIORIDADE_PCD` / `MEIA_ENTRADA_PCD` | Laudo, RG |
-| `CREDENCIAL_PCD` | Laudo, RG, comprovante de residência |
-| `BPC_IDOSO` | RG, CPF, comprovante de renda, comprovante de residência |
-| `PASSE_IDOSO_INTERESTADUAL` | RG, comprovante de renda |
-| `PRIORIDADE_IDOSO` | RG |
-| `ISENCAO_IR_65MAIS` | RG, CPF |
-| `CREDENCIAL_IDOSO` | RG, comprovante de residência |
-| `CADUNICO` / `BOLSA_FAMILIA` | RG, CPF, comprovante de renda, comprovante de residência |
-| `TARIFA_SOCIAL_ENERGIA` | CPF, comprovante de residência |
+| Direito                                                                     | Documentos obrigatórios                                         |
+| --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `CIPTEA`                                                                  | Laudo, RG, CPF                                                   |
+| `ACOMPANHANTE_ESCOLAR_TEA`                                                | Laudo                                                            |
+| `BPC_PCD`                                                                 | Laudo, RG, CPF, comprovante de renda, comprovante de residência |
+| `PASSE_LIVRE_PCD`                                                         | Laudo, RG, CPF, comprovante de renda                             |
+| `ISENCAO_IPI_VEICULO_PCD` / `ISENCAO_IOF_VEICULO_PCD`                   | Laudo, RG, CPF                                                   |
+| `COTA_PCD_ENSINO_SUPERIOR` / `COTA_PCD_CONCURSO` / `COTA_PCD_EMPREGO` | Laudo, RG, CPF                                                   |
+| `PRIORIDADE_PCD` / `MEIA_ENTRADA_PCD`                                   | Laudo, RG                                                        |
+| `CREDENCIAL_PCD`                                                          | Laudo, RG, comprovante de residência                            |
+| `BPC_IDOSO`                                                               | RG, CPF, comprovante de renda, comprovante de residência        |
+| `PASSE_IDOSO_INTERESTADUAL`                                               | RG, comprovante de renda                                         |
+| `PRIORIDADE_IDOSO`                                                        | RG                                                               |
+| `ISENCAO_IR_65MAIS`                                                       | RG, CPF                                                          |
+| `CREDENCIAL_IDOSO`                                                        | RG, comprovante de residência                                   |
+| `CADUNICO` / `BOLSA_FAMILIA`                                            | RG, CPF, comprovante de renda, comprovante de residência        |
+| `TARIFA_SOCIAL_ENERGIA`                                                   | CPF, comprovante de residência                                  |
 
 São os 20 direitos do catálogo do Oracle (`T_DF_DIREITO.COD_DIREITO`), com os documentos tirados da base de conhecimento da API Java (`conhecimento/direitos.md`). A Farmácia Popular não entra: é uma consulta de medicamentos e não gera envio. Um teste (`Seed_DeveTerOs20DireitosDoCatalogoOracle`) garante que o catálogo da .NET tem exatamente esses 20 códigos.
 
 ### Tabelas de apoio
 
-| Tabela | Conteúdo |
-|---|---|
+| Tabela              | Conteúdo                                                      |
+| ------------------- | -------------------------------------------------------------- |
 | `DF_IDEMPOTENCIA` | Chaves `Idempotency-Key` com o status e a resposta guardados |
-| `DF_OUTBOX` | Eventos pendentes de publicação no RabbitMQ |
+| `DF_OUTBOX`       | Eventos pendentes de publicação no RabbitMQ                  |
 
 ---
 
@@ -304,15 +306,15 @@ O banco desta API é independente do banco da API Java. A ligação entre as dua
 
 ## Requisitos da disciplina e onde estão
 
-| Requisito | Implementação |
-|---|---|
-| API RESTful com validações e códigos HTTP | Controllers em `DireitoFacil.Api/Controllers`; DataAnnotations nos DTOs; erros em `application/problem+json` pelo `GlobalExceptionHandler` (400, 401, 403, 404, 409, 422, 429, 503) |
-| OpenAPI e Swagger | Swagger UI na raiz (`/`), com comentários XML, contratos de entrada e saída e respostas de cada endpoint |
-| Requisições repetidas (idempotência) | `IdempotenciaFilter` + atributo `[Idempotente]` nos POST de criação |
-| Limitação de requisições | 4 políticas em `RateLimitServiceCollectionExtensions`, com HTTP 429 e header `Retry-After` |
-| JWT com controle de acesso | `AuthController` emite o token; policies `SomenteCidadao`, `SomenteGestor` e `SomenteServico` |
-| Health checks | `/health` (Oracle, storage, RabbitMQ e API Java) e `/health/live` |
-| Testes unitários e de integração com xUnit | 4 projetos de teste; os de integração sobem a API em memória com `WebApplicationFactory` e SQLite |
+| Requisito                                     | Implementação                                                                                                                                                                           |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API RESTful com validações e códigos HTTP  | Controllers em `DireitoFacil.Api/Controllers`; DataAnnotations nos DTOs; erros em `application/problem+json` pelo `GlobalExceptionHandler` (400, 401, 403, 404, 409, 422, 429, 503) |
+| OpenAPI e Swagger                             | Swagger UI na raiz (`/`), com comentários XML, contratos de entrada e saída e respostas de cada endpoint                                                                              |
+| Requisições repetidas (idempotência)       | `IdempotenciaFilter` + atributo `[Idempotente]` nos POST de criação                                                                                                                 |
+| Limitação de requisições                  | 4 políticas em `RateLimitServiceCollectionExtensions`, com HTTP 429 e header `Retry-After`                                                                                           |
+| JWT com controle de acesso                    | `AuthController` emite o token; policies `SomenteCidadao`, `SomenteGestor` e `SomenteServico`                                                                                     |
+| Health checks                                 | `/health` (Oracle, storage, RabbitMQ e API Java) e `/health/live`                                                                                                                     |
+| Testes unitários e de integração com xUnit | 4 projetos de teste; os de integração sobem a API em memória com `WebApplicationFactory` e SQLite                                                                                    |
 
 ---
 
@@ -320,10 +322,10 @@ O banco desta API é independente do banco da API Java. A ligação entre as dua
 
 A connection string **não fica versionada** no `appsettings.json`: senhas e chaves nunca vão para o GitHub. A API lê a chave `ConnectionStrings:DireitoFacilOracle`, que vem de um destes lugares conforme a forma de execução:
 
-| Onde a API roda | De onde vem a connection string |
-|---|---|
-| Local, com `dotnet run` | **User Secrets** do .NET — arquivo fora do repositório, só na sua máquina |
-| Nuvem (Azure) | App Setting `ConnectionStrings__DireitoFacilOracle`, gravado pelo deploy a partir da variável **secreta** `OracleConnection` da pipeline |
+| Onde a API roda           | De onde vem a connection string                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Local, com `dotnet run` | **User Secrets** do .NET — arquivo fora do repositório, só na sua máquina                                                                 |
+| Nuvem (Azure)             | App Setting `ConnectionStrings__DireitoFacilOracle`, gravado pelo deploy a partir da variável **secreta** `OracleConnection` da pipeline |
 
 Formato da connection string (Oracle FIAP):
 
@@ -374,10 +376,10 @@ GET /health
 GET /health/live
 ```
 
-| Rota | O que verifica | Status HTTP |
-|---|---|---|
-| `/health` | processo, Oracle, storage, RabbitMQ e API Java | 200 se `Healthy` ou `Degraded`; 503 se `Unhealthy` |
-| `/health/live` | só o processo (usado para saber se o app precisa ser reiniciado) | 200 |
+| Rota             | O que verifica                                                    | Status HTTP                                              |
+| ---------------- | ----------------------------------------------------------------- | -------------------------------------------------------- |
+| `/health`      | processo, Oracle, storage, RabbitMQ e API Java                    | 200 se `Healthy` ou `Degraded`; 503 se `Unhealthy` |
+| `/health/live` | só o processo (usado para saber se o app precisa ser reiniciado) | 200                                                      |
 
 RabbitMQ e API Java fora do ar deixam a API `Degraded`, e não `Unhealthy`: os eventos ficam guardados no outbox e são publicados quando o serviço voltar.
 
@@ -407,15 +409,15 @@ Logging padrão do ASP.NET Core. Na nuvem, os logs aparecem no **Log stream** do
 
 O `GlobalExceptionHandler` converte qualquer exceção em `application/problem+json`:
 
-| Exceção | Status |
-|---|---|
-| Validação de DTO (DataAnnotations) / `DomainException` | 400 |
-| Credenciais inválidas | 401 |
-| Acesso negado | 403 |
-| Recurso não encontrado | 404 |
-| `RegraDeNegocioException` / registro duplicado | 409 |
-| Banco indisponível | 503 |
-| Erro inesperado | 500 |
+| Exceção                                                  | Status |
+| ---------------------------------------------------------- | ------ |
+| Validação de DTO (DataAnnotations) / `DomainException` | 400    |
+| Credenciais inválidas                                     | 401    |
+| Acesso negado                                              | 403    |
+| Recurso não encontrado                                    | 404    |
+| `RegraDeNegocioException` / registro duplicado           | 409    |
+| Banco indisponível                                        | 503    |
+| Erro inesperado                                            | 500    |
 
 ---
 
@@ -431,22 +433,22 @@ A conta **GESTOR** (assistente social) não se cadastra pela API: é criada pelo
 
 ### Papéis
 
-| Papel | Quem é | O que pode fazer |
-|---|---|---|
-| `CIDADAO` | Família | Enviar, corrigir e excluir os próprios documentos; criar, submeter e cancelar envios |
-| `GESTOR` | Assistente social | Ver a fila de envios e aprovar ou devolver |
-| `SERVICO` | API Java | Atualizar o status de processamento do documento |
+| Papel       | Quem é           | O que pode fazer                                                                      |
+| ----------- | ----------------- | ------------------------------------------------------------------------------------- |
+| `CIDADAO` | Família          | Enviar, corrigir e excluir os próprios documentos; criar, submeter e cancelar envios |
+| `GESTOR`  | Assistente social | Ver a fila de envios e aprovar ou devolver                                            |
+| `SERVICO` | API Java          | Atualizar o status de processamento do documento                                      |
 
 > No token (claim `role`) o papel aparece em maiúsculas (`CIDADAO`, `GESTOR`, `SERVICO`); no JSON de resposta e no banco (`DF_USUARIO.Papel`) aparece como o nome do enum (`Cidadao`, `Gestor`, `Servico`).
 
 ### Configuração
 
-| Chave | Valor |
-|---|---|
-| `Jwt:Issuer` | `direitofacil` |
-| `Jwt:Audience` | `direitofacil-app` |
-| `Jwt:Chave` | Segredo (mín. 32 caracteres), o mesmo nas APIs .NET e Java |
-| `Jwt:ExpiracaoMinutos` | `480` |
+| Chave                    | Valor                                                       |
+| ------------------------ | ----------------------------------------------------------- |
+| `Jwt:Issuer`           | `direitofacil`                                            |
+| `Jwt:Audience`         | `direitofacil-app`                                        |
+| `Jwt:Chave`            | Segredo (mín. 32 caracteres), o mesmo nas APIs .NET e Java |
+| `Jwt:ExpiracaoMinutos` | `480`                                                     |
 
 O token é HS256 com `sub` = e-mail do usuário e a claim `role` com o papel.
 
@@ -458,13 +460,13 @@ O token é HS256 com `sub` = e-mail do usuário e a claim `role` com o papel.
 
 Os endpoints `POST /api/documentos`, `POST /api/envios` e `POST /api/envios/{id}/submeter` exigem o header `Idempotency-Key` (um UUID gerado pelo app para cada ação). Com conexão instável, o app reenvia a mesma requisição sem criar documentos ou envios duplicados.
 
-| Situação | Resposta |
-|---|---|
-| Header ausente ou inválido | 400 |
-| Chave nova | Executa e guarda status e corpo da resposta |
-| Mesma chave e mesmo conteúdo | Devolve a resposta guardada, sem executar de novo (header `Idempotent-Replayed: true`) |
-| Mesma chave com conteúdo diferente | 422 |
-| Mesma chave ainda em processamento | 409 |
+| Situação                          | Resposta                                                                                 |
+| ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| Header ausente ou inválido         | 400                                                                                      |
+| Chave nova                          | Executa e guarda status e corpo da resposta                                              |
+| Mesma chave e mesmo conteúdo       | Devolve a resposta guardada, sem executar de novo (header `Idempotent-Replayed: true`) |
+| Mesma chave com conteúdo diferente | 422                                                                                      |
+| Mesma chave ainda em processamento  | 409                                                                                      |
 
 A chave vale por usuário e endpoint e expira em 24 horas. Se a action falhar com erro 5xx, a chave é liberada para nova tentativa. No upload, o arquivo entra na comparação pelo hash SHA-256 do conteúdo.
 
@@ -472,12 +474,12 @@ A chave vale por usuário e endpoint e expira em 24 horas. Se a action falhar co
 
 ### Rate limiting
 
-| Política | Onde | Limite |
-|---|---|---|
-| `autenticacao` | login e cadastro | 10 por minuto por IP (contra força bruta) |
-| `upload` | envio de documento | 5 seguidos, recarregando 1 a cada 2 minutos por usuário (cada upload aciona a IA) |
-| `escrita` | demais POST, PUT e DELETE | 30 por minuto por usuário |
-| `leitura` | GET | 120 por minuto por usuário |
+| Política        | Onde                      | Limite                                                                             |
+| ---------------- | ------------------------- | ---------------------------------------------------------------------------------- |
+| `autenticacao` | login e cadastro          | 10 por minuto por IP (contra força bruta)                                         |
+| `upload`       | envio de documento        | 5 seguidos, recarregando 1 a cada 2 minutos por usuário (cada upload aciona a IA) |
+| `escrita`      | demais POST, PUT e DELETE | 30 por minuto por usuário                                                         |
+| `leitura`      | GET                       | 120 por minuto por usuário                                                        |
 
 Ao estourar o limite, a API responde **429** com o header `Retry-After`.
 
@@ -496,12 +498,12 @@ Ao estourar o limite, a API responde **429** com o header `Retry-After`.
 
 ## Integração com a API Java (RabbitMQ)
 
-| Item | Valor |
-|---|---|
-| Fila | `documentos.recebidos` (exchange padrão) |
-| Evento | `DocumentoRecebido`, serializado em camelCase |
-| Publicação | Padrão **outbox**: o evento é gravado na `DF_OUTBOX` na mesma transação do documento, e o `OutboxWorker` publica a cada 5 segundos |
-| Retorno da IA | A API Java chama `PATCH /api/documentos/{id}/status` com um token de papel `SERVICO` |
+| Item          | Valor                                                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Fila          | `documentos.recebidos` (exchange padrão)                                                                                                      |
+| Evento        | `DocumentoRecebido`, serializado em camelCase                                                                                                  |
+| Publicação  | Padrão **outbox**: o evento é gravado na `DF_OUTBOX` na mesma transação do documento, e o `OutboxWorker` publica a cada 5 segundos |
+| Retorno da IA | A API Java chama `PATCH /api/documentos/{id}/status` com um token de papel `SERVICO`                                                         |
 
 Campos do evento:
 
@@ -533,12 +535,12 @@ Sem `RabbitMq:Uri` configurado, a API continua funcionando normalmente: os event
 
 A solução tem testes em **xUnit**, organizados por camada, espelhando a Clean Architecture. Nenhum teste precisa de Oracle nem de RabbitMQ: a persistência usa **SQLite em memória**.
 
-| Projeto de teste | Camada testada | O que cobre |
-|---|---|---|
-| `DireitoFacil.Domain.Tests` | Domínio | Regras das entidades `Usuario`, `Documento`, `Envio` e `DocumentoObrigatorio`: validações, consentimento de saúde e as máquinas de estado do documento e do envio |
-| `DireitoFacil.Application.Tests` | Application | `AuthService`, `DocumentoService` e `EnvioService` (cadastro, login, upload, checklist de obrigatórios, análise do gestor) e a validação de arquivo |
-| `DireitoFacil.Infrastructure.Tests` | Infraestrutura | `DireitoFacilContext`, mapeamentos, repositórios, hash de senha, storage local e publicação no outbox, com SQLite em memória |
-| `DireitoFacil.Api.Tests` | API (integração) | Sobe a API real em memória com `WebApplicationFactory`: autenticação, documentos, envios, segurança por papel, idempotência, rate limiting e health checks |
+| Projeto de teste                      | Camada testada     | O que cobre                                                                                                                                                                   |
+| ------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DireitoFacil.Domain.Tests`         | Domínio           | Regras das entidades `Usuario`, `Documento`, `Envio` e `DocumentoObrigatorio`: validações, consentimento de saúde e as máquinas de estado do documento e do envio |
+| `DireitoFacil.Application.Tests`    | Application        | `AuthService`, `DocumentoService` e `EnvioService` (cadastro, login, upload, checklist de obrigatórios, análise do gestor) e a validação de arquivo                 |
+| `DireitoFacil.Infrastructure.Tests` | Infraestrutura     | `DireitoFacilContext`, mapeamentos, repositórios, hash de senha, storage local e publicação no outbox, com SQLite em memória                                            |
+| `DireitoFacil.Api.Tests`            | API (integração) | Sobe a API real em memória com `WebApplicationFactory`: autenticação, documentos, envios, segurança por papel, idempotência, rate limiting e health checks             |
 
 ### Executando os testes
 
@@ -623,17 +625,17 @@ As URLs de produção estão em [Links da aplicação](#links-da-aplicação).
 
 Os números abaixo seguem o [diagrama da arquitetura](#diagrama-da-solução).
 
-| # | Etapa | Onde atua |
-|---|---|---|
-| 1 | A tarefa é criada no Azure Boards; o desenvolvedor cria uma branch, faz o commit com `AB#<id>` e abre o PR para a `main` | Azure Boards / GitHub |
-| 2 | O merge na `main` dispara automaticamente a pipeline (`trigger: main`) — Stage CI | Azure Pipelines |
+| # | Etapa                                                                                                                                                                                                  | Onde atua                        |
+| - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| 1 | A tarefa é criada no Azure Boards; o desenvolvedor cria uma branch, faz o commit com `AB#<id>` e abre o PR para a `main`                                                                          | Azure Boards / GitHub            |
+| 2 | O merge na `main` dispara automaticamente a pipeline (`trigger: main`) — Stage CI                                                                                                                 | Azure Pipelines                  |
 | 3 | Job **Criar Infra Inicial**: `scripts/infra-direitofacil.sh` cria as tabelas do `scripts/script-bd.sql` no Oracle (só se não existirem) e cria/reaproveita Resource Group, Plano e Web App | Azure CLI → Oracle FIAP / Azure |
-| 4 | Job **Build and Test**: restore, build (Release) e testes xUnit, com resultados e cobertura publicados | Azure Pipelines (Tests) |
-| 5 | Publish da `DireitoFacil.Api` e publicação do artefato `app` (.zip) | Azure DevOps (Artifacts) |
-| 6 | O novo artefato dispara o Stage CD (deployment no environment `producao`) | Azure Pipelines |
-| 7 | Deploy do .zip no Web App (`AzureWebApp@1`) e gravação das App Settings a partir das variáveis secretas | Azure App Service |
-| 8 | A API em produção persiste no Oracle FIAP (EF Core) e publica o evento `DocumentoRecebido` (outbox) para a API Java via RabbitMQ | Oracle FIAP / RabbitMQ |
-| 9 | Cidadão (app mobile), assistente social e Swagger consomem a API via HTTPS com JWT | Web App |
+| 4 | Job **Build and Test**: restore, build (Release) e testes xUnit, com resultados e cobertura publicados                                                                                           | Azure Pipelines (Tests)          |
+| 5 | Publish da `DireitoFacil.Api` e publicação do artefato `app` (.zip)                                                                                                                              | Azure DevOps (Artifacts)         |
+| 6 | O novo artefato dispara o Stage CD (deployment no environment `producao`)                                                                                                                            | Azure Pipelines                  |
+| 7 | Deploy do .zip no Web App (`AzureWebApp@1`) e gravação das App Settings a partir das variáveis secretas                                                                                           | Azure App Service                |
+| 8 | A API em produção persiste no Oracle FIAP (EF Core) e publica o evento `DocumentoRecebido` (outbox) para a API Java via RabbitMQ                                                                   | Oracle FIAP / RabbitMQ           |
+| 9 | Cidadão (app mobile), assistente social e Swagger consomem a API via HTTPS com JWT                                                                                                                    | Web App                          |
 
 > O **Oracle FIAP** é o banco de dados em nuvem da solução. A API, rodando no Azure, e as ferramentas de banco (Rider / SQL Developer) se conectam ao mesmo servidor `oracle.fiap.com.br` pela internet.
 
@@ -650,25 +652,25 @@ O stage **CD** só roda quando o **CI** termina com sucesso: se um teste falhar,
 
 ### Recursos no Azure
 
-| Recurso | Nome |
-|---|---|
-| Grupo de recursos | `rg-direitofacil` (South Africa North) |
-| Plano do App Service | `plan-direitofacil` (Windows, SKU F1) |
-| Web App | `direitofacil-rm561378` (runtime .NET 10) |
-| Banco de dados | Oracle FIAP, usuário `rm561378`, 7 tabelas `DF_*` |
+| Recurso              | Nome                                                   |
+| -------------------- | ------------------------------------------------------ |
+| Grupo de recursos    | `rg-direitofacil` (South Africa North)               |
+| Plano do App Service | `plan-direitofacil` (Windows, SKU F1)                |
+| Web App              | `direitofacil-rm561378` (runtime .NET 10)            |
+| Banco de dados       | Oracle FIAP, usuário `rm561378`, 7 tabelas `DF_*` |
 
 Os recursos são criados pelo `scripts/infra-direitofacil.sh` (Azure CLI), que é idempotente: em cada execução reaproveita o que já existe e nunca apaga nem altera dados do banco.
 
 ### Arquivos de DevOps
 
-| Arquivo | Conteúdo |
-|---|---|
-| `azure-pipeline.yml` | Pipeline YAML: Stage CI (infra, build, testes, artefato) e Stage CD (deploy) |
-| `scripts/infra-direitofacil.sh` | Script Azure CLI: tabelas no Oracle (SQLcl) + Resource Group, Plano e Web App |
-| `scripts/script-bd.sql` | DDL dos objetos do banco (gerado por `dotnet ef migrations script --idempotent`) |
-| `scripts/crud-demo.sql` | CRUD de todas as tabelas, executado direto no Oracle |
-| `docs/arquitetura-cicd.drawio` / `.png` | Desenho macro da arquitetura |
-| `docs/evidencias/` | Prints do Oracle em nuvem e da fila no RabbitMQ |
+| Arquivo                                     | Conteúdo                                                                          |
+| ------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `azure-pipeline.yml`                      | Pipeline YAML: Stage CI (infra, build, testes, artefato) e Stage CD (deploy)       |
+| `scripts/infra-direitofacil.sh`           | Script Azure CLI: tabelas no Oracle (SQLcl) + Resource Group, Plano e Web App      |
+| `scripts/script-bd.sql`                   | DDL dos objetos do banco (gerado por `dotnet ef migrations script --idempotent`) |
+| `scripts/crud-demo.sql`                   | CRUD de todas as tabelas, executado direto no Oracle                               |
+| `docs/arquitetura-cicd.drawio` / `.png` | Desenho macro da arquitetura                                                       |
+| `docs/evidencias/`                        | Prints do Oracle em nuvem e da fila no RabbitMQ                                    |
 
 ### Configuração no Azure DevOps
 
@@ -676,14 +678,14 @@ Os recursos são criados pelo `scripts/infra-direitofacil.sh` (Azure CLI), que �
 2. **Environment** `producao` (criado no primeiro deploy), usado pelo stage CD.
 3. **Variáveis secretas** (botão *Variables* da pipeline, com cadeado), nunca declaradas no YAML:
 
-| Variável | Uso |
-|---|---|
-| `ORACLE_PASS` | Senha do Oracle, usada pelo `infra-direitofacil.sh` para criar as tabelas |
-| `OracleConnection` | Connection string do Oracle → App Setting `ConnectionStrings__DireitoFacilOracle` |
-| `JwtChave` | Chave de assinatura do JWT (a mesma da API Java) → App Setting `Jwt__Chave` |
-| `SeedGestorEmail` | E-mail da conta GESTOR criada no seed → `Seed__Gestor__Email` |
-| `SeedGestorSenha` | Senha da conta GESTOR → `Seed__Gestor__Senha` |
-| `RabbitMqUri` | URL AMQPS do RabbitMQ gerenciado (CloudAMQP), o mesmo broker da API Java → `RabbitMq__Uri` |
+| Variável            | Uso                                                                                           |
+| -------------------- | --------------------------------------------------------------------------------------------- |
+| `ORACLE_PASS`      | Senha do Oracle, usada pelo `infra-direitofacil.sh` para criar as tabelas                   |
+| `OracleConnection` | Connection string do Oracle → App Setting `ConnectionStrings__DireitoFacilOracle`          |
+| `JwtChave`         | Chave de assinatura do JWT (a mesma da API Java) → App Setting `Jwt__Chave`                |
+| `SeedGestorEmail`  | E-mail da conta GESTOR criada no seed → `Seed__Gestor__Email`                              |
+| `SeedGestorSenha`  | Senha da conta GESTOR → `Seed__Gestor__Senha`                                              |
+| `RabbitMqUri`      | URL AMQPS do RabbitMQ gerenciado (CloudAMQP), o mesmo broker da API Java → `RabbitMq__Uri` |
 
 As variáveis não secretas (host, porta, SID e usuário do Oracle, nome do Web App, região e pasta de arquivos) ficam no bloco `variables` do `azure-pipeline.yml`.
 
@@ -699,14 +701,14 @@ az group delete --name "rg-direitofacil" --yes --no-wait
 
 ## Portas e serviços
 
-| Serviço | Onde | URL |
-|---|---|---|
-| DireitoFácil API (local) | `dotnet run` | `http://localhost:5264/api/...` |
-| Swagger UI (local) | `dotnet run` | `http://localhost:5264/index.html` |
-| DireitoFácil API (nuvem) | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net/api/...` |
-| Swagger UI (nuvem) | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net/index.html` |
-| Oracle FIAP | Nuvem | `oracle.fiap.com.br:1521/orcl` |
-| RabbitMQ (CloudAMQP) | Nuvem | `amqps://…rmq6.cloudamqp.com` (porta 5671, TLS) |
+| Serviço                  | Onde              | URL                                                            |
+| ------------------------- | ----------------- | -------------------------------------------------------------- |
+| DireitoFácil API (local) | `dotnet run`    | `http://localhost:5264/api/...`                              |
+| Swagger UI (local)        | `dotnet run`    | `http://localhost:5264/index.html`                           |
+| DireitoFácil API (nuvem) | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net/api/...`    |
+| Swagger UI (nuvem)        | Azure App Service | `https://direitofacil-rm561378.azurewebsites.net/index.html` |
+| Oracle FIAP               | Nuvem             | `oracle.fiap.com.br:1521/orcl`                               |
+| RabbitMQ (CloudAMQP)      | Nuvem             | `amqps://…rmq6.cloudamqp.com` (porta 5671, TLS)             |
 
 ---
 
@@ -714,22 +716,22 @@ az group delete --name "rg-direitofacil" --yes --no-wait
 
 Localmente as chaves vêm do User Secrets (com `:`); no Azure, das App Settings (com `__`).
 
-| Variável | Valor padrão | Descrição |
-|---|---|---|
-| `ConnectionStrings__DireitoFacilOracle` | _(obrigatória)_ | Connection string do Oracle |
-| `Jwt__Chave` | _(obrigatória)_ | Chave de assinatura do JWT (mín. 32 caracteres), igual à da API Java |
-| `Jwt__Issuer` / `Jwt__Audience` | `direitofacil` / `direitofacil-app` | Emissor e público-alvo do token |
-| `Jwt__ExpiracaoMinutos` | `480` | Validade do token |
-| `ASPNETCORE_ENVIRONMENT` | `Development` (local) / `Production` (nuvem) | Ambiente de execução |
-| `Database__AplicarMigrations` | `true` | Aplica migrations e seed na inicialização |
-| `Seed__Gestor__Email` / `Seed__Gestor__Senha` | _(vazio)_ | Conta GESTOR criada no seed |
-| `Seed__Servico__Email` / `Seed__Servico__Senha` | _(vazio)_ | Conta SERVICO opcional (testes pelo Swagger; a API Java gera o próprio token) |
-| `Storage__Provider` | `Local` | `Local` ou `AzureBlob` |
-| `Storage__PastaLocal` | `arquivos` | Pasta dos arquivos (nuvem: `D:\home\data\arquivos`) |
-| `Storage__AzureConnectionString` / `Storage__Container` | _(vazio)_ / `documentos` | Usados quando o provider é `AzureBlob` |
-| `RabbitMq__Uri` | _(vazio)_ | URI do RabbitMQ; vazio = eventos ficam no outbox |
-| `RabbitMq__FilaDocumentosRecebidos` | `documentos.recebidos` | Fila do evento |
-| `ServicosExternos__JavaApiHealthUrl` | _(vazio)_ | Health da API Java, verificado no `/health` |
+| Variável                                                   | Valor padrão                                    | Descrição                                                                    |
+| ----------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ConnectionStrings__DireitoFacilOracle`                   | _(obrigatória)_                               | Connection string do Oracle                                                    |
+| `Jwt__Chave`                                              | _(obrigatória)_                               | Chave de assinatura do JWT (mín. 32 caracteres), igual à da API Java         |
+| `Jwt__Issuer` / `Jwt__Audience`                         | `direitofacil` / `direitofacil-app`          | Emissor e público-alvo do token                                               |
+| `Jwt__ExpiracaoMinutos`                                   | `480`                                          | Validade do token                                                              |
+| `ASPNETCORE_ENVIRONMENT`                                  | `Development` (local) / `Production` (nuvem) | Ambiente de execução                                                         |
+| `Database__AplicarMigrations`                             | `true`                                         | Aplica migrations e seed na inicialização                                    |
+| `Seed__Gestor__Email` / `Seed__Gestor__Senha`           | _(vazio)_                                      | Conta GESTOR criada no seed                                                    |
+| `Seed__Servico__Email` / `Seed__Servico__Senha`         | _(vazio)_                                      | Conta SERVICO opcional (testes pelo Swagger; a API Java gera o próprio token) |
+| `Storage__Provider`                                       | `Local`                                        | `Local` ou `AzureBlob`                                                     |
+| `Storage__PastaLocal`                                     | `arquivos`                                     | Pasta dos arquivos (nuvem: `D:\home\data\arquivos`)                          |
+| `Storage__AzureConnectionString` / `Storage__Container` | _(vazio)_ / `documentos`                     | Usados quando o provider é `AzureBlob`                                      |
+| `RabbitMq__Uri`                                           | _(vazio)_                                      | URI do RabbitMQ; vazio = eventos ficam no outbox                               |
+| `RabbitMq__FilaDocumentosRecebidos`                       | `documentos.recebidos`                         | Fila do evento                                                                 |
+| `ServicosExternos__JavaApiHealthUrl`                      | _(vazio)_                                      | Health da API Java, verificado no `/health`                                  |
 
 ---
 
@@ -739,34 +741,34 @@ Todos usam o prefixo `/api`. Com exceção de `auth`, todos exigem `Authorizatio
 
 ### Autenticação
 
-| Método | Rota | Papel | Descrição |
-|---|---|---|---|
-| POST | `/api/auth/registrar` | público | Cadastra um cidadão (senha com 8+ caracteres, letras e números) |
-| POST | `/api/auth/login` | público | Devolve o JWT (`accessToken`) |
+| Método | Rota                    | Papel    | Descrição                                                       |
+| ------- | ----------------------- | -------- | ----------------------------------------------------------------- |
+| POST    | `/api/auth/registrar` | público | Cadastra um cidadão (senha com 8+ caracteres, letras e números) |
+| POST    | `/api/auth/login`     | público | Devolve o JWT (`accessToken`)                                   |
 
 ### Documentos
 
-| Método | Rota | Papel | Descrição |
-|---|---|---|---|
-| POST | `/api/documentos` | CIDADAO | Upload (`multipart/form-data`: `Arquivo`, `Tipo`, `ConsentimentoSaude`, `Descricao`, `PessoaId`). Idempotente |
-| GET | `/api/documentos` | todos | Lista paginada (`page`, `pageSize`, `tipo`, `status`; `cidadaoId` só para gestor) |
-| GET | `/api/documentos/{id}` | todos | Detalhe |
-| GET | `/api/documentos/{id}/arquivo` | todos | Download do arquivo |
-| PUT | `/api/documentos/{id}` | CIDADAO | Corrige tipo e descrição (bloqueado enquanto a IA processa) |
-| PATCH | `/api/documentos/{id}/status` | SERVICO | A API Java informa `Processando`, `Extraido` ou `Falha` |
-| DELETE | `/api/documentos/{id}` | CIDADAO | Exclui documento e arquivo |
+| Método | Rota                             | Papel   | Descrição                                                                                                               |
+| ------- | -------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| POST    | `/api/documentos`              | CIDADAO | Upload (`multipart/form-data`: `Arquivo`, `Tipo`, `ConsentimentoSaude`, `Descricao`, `PessoaId`). Idempotente |
+| GET     | `/api/documentos`              | todos   | Lista paginada (`page`, `pageSize`, `tipo`, `status`; `cidadaoId` só para gestor)                              |
+| GET     | `/api/documentos/{id}`         | todos   | Detalhe                                                                                                                   |
+| GET     | `/api/documentos/{id}/arquivo` | todos   | Download do arquivo                                                                                                       |
+| PUT     | `/api/documentos/{id}`         | CIDADAO | Corrige tipo e descrição (bloqueado enquanto a IA processa)                                                             |
+| PATCH   | `/api/documentos/{id}/status`  | SERVICO | A API Java informa `Processando`, `Extraido` ou `Falha`                                                             |
+| DELETE  | `/api/documentos/{id}`         | CIDADAO | Exclui documento e arquivo                                                                                                |
 
 ### Envios
 
-| Método | Rota | Papel | Descrição |
-|---|---|---|---|
-| POST | `/api/envios` | CIDADAO | Cria um envio em rascunho (`casoId`, `direitoCodigo`, `documentoIds`). Idempotente |
-| GET | `/api/envios` | todos | Lista paginada; o gestor usa `status=Enviado` como fila de análise |
-| GET | `/api/envios/{id}` | todos | Detalhe |
-| PUT | `/api/envios/{id}` | CIDADAO | Troca os documentos (só em `Rascunho` ou `Devolvido`) |
-| POST | `/api/envios/{id}/submeter` | CIDADAO | Envia para análise e confere os documentos obrigatórios. Idempotente |
-| POST | `/api/envios/{id}/analise` | GESTOR | `Aprovar` ou `Devolver` (devolver exige observação) |
-| DELETE | `/api/envios/{id}` | CIDADAO | Cancela (só em `Rascunho` ou `Devolvido`) |
+| Método | Rota                          | Papel   | Descrição                                                                              |
+| ------- | ----------------------------- | ------- | ---------------------------------------------------------------------------------------- |
+| POST    | `/api/envios`               | CIDADAO | Cria um envio em rascunho (`casoId`, `direitoCodigo`, `documentoIds`). Idempotente |
+| GET     | `/api/envios`               | todos   | Lista paginada; o gestor usa `status=Enviado` como fila de análise                    |
+| GET     | `/api/envios/{id}`          | todos   | Detalhe                                                                                  |
+| PUT     | `/api/envios/{id}`          | CIDADAO | Troca os documentos (só em `Rascunho` ou `Devolvido`)                               |
+| POST    | `/api/envios/{id}/submeter` | CIDADAO | Envia para análise e confere os documentos obrigatórios. Idempotente                   |
+| POST    | `/api/envios/{id}/analise`  | GESTOR  | `Aprovar` ou `Devolver` (devolver exige observação)                                |
+| DELETE  | `/api/envios/{id}`          | CIDADAO | Cancela (só em `Rascunho` ou `Devolvido`)                                           |
 
 Ciclo do envio:
 
@@ -876,13 +878,13 @@ Idempotency-Key: 5d0f3c1a-8e2b-4f6a-9c7d-1a2b3c4d5e6f
 Content-Type: multipart/form-data
 ```
 
-| Campo | Valor |
-|---|---|
-| `Arquivo` | um PDF, JPEG ou PNG de até 10 MB |
-| `Tipo` | `Laudo` |
-| `ConsentimentoSaude` | `true` (obrigatório para `Laudo`) |
-| `Descricao` | `Laudo neurológico` |
-| `PessoaId` | `7` (opcional: o familiar a quem o documento pertence, id da pessoa na API Java) |
+| Campo                  | Valor                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| `Arquivo`            | um PDF, JPEG ou PNG de até 10 MB                                                  |
+| `Tipo`               | `Laudo`                                                                          |
+| `ConsentimentoSaude` | `true` (obrigatório para `Laudo`)                                             |
+| `Descricao`          | `Laudo neurológico`                                                             |
+| `PessoaId`           | `7` (opcional: o familiar a quem o documento pertence, id da pessoa na API Java) |
 
 Resultado esperado: **201 Created**
 
@@ -1061,21 +1063,21 @@ Resultado esperado: **204 No Content**. Documento que está em um envio ativo n�
 
 ## Testes de erro
 
-| Cenário | Requisição | Resultado esperado |
-|---|---|---|
-| Endpoint protegido sem token | `GET /api/documentos` sem `Authorization` | **401** |
-| Login com senha errada | `POST /api/auth/login` com senha incorreta | **401** |
-| Cadastro com e-mail repetido | `POST /api/auth/registrar` com e-mail já usado | **409** |
-| Cadastro com senha fraca | `"senha": "abc"` | **400** |
-| Cidadão tentando analisar envio | `POST /api/envios/{id}/analise` com token de cidadão | **403** |
-| Documento de outro cidadão / id inexistente | `GET /api/documentos/00000000-0000-0000-0000-000000000000` | **404** |
-| Upload sem `Idempotency-Key` (fora do Swagger) | `POST /api/documentos` sem o header | **400** |
-| Mesma `Idempotency-Key` com outro arquivo | repetir o upload trocando o arquivo | **422** |
-| Laudo sem consentimento | `Tipo=Laudo`, `ConsentimentoSaude=false` | **400** |
-| Arquivo `.exe` renomeado para `.pdf` | upload do arquivo | **400** |
-| Submeter envio incompleto | `direitoCodigo: "CIPTEA"` só com o laudo | **409** |
-| Devolver sem observação | `{"decisao": "Devolver"}` | **400** |
-| Mais de 10 logins em 1 minuto | repetir `POST /api/auth/login` | **429** com `Retry-After` |
+| Cenário                                         | Requisição                                                 | Resultado esperado                |
+| ------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- |
+| Endpoint protegido sem token                     | `GET /api/documentos` sem `Authorization`                | **401**                     |
+| Login com senha errada                           | `POST /api/auth/login` com senha incorreta                 | **401**                     |
+| Cadastro com e-mail repetido                     | `POST /api/auth/registrar` com e-mail já usado            | **409**                     |
+| Cadastro com senha fraca                         | `"senha": "abc"`                                           | **400**                     |
+| Cidadão tentando analisar envio                 | `POST /api/envios/{id}/analise` com token de cidadão      | **403**                     |
+| Documento de outro cidadão / id inexistente     | `GET /api/documentos/00000000-0000-0000-0000-000000000000` | **404**                     |
+| Upload sem `Idempotency-Key` (fora do Swagger) | `POST /api/documentos` sem o header                        | **400**                     |
+| Mesma `Idempotency-Key` com outro arquivo      | repetir o upload trocando o arquivo                          | **422**                     |
+| Laudo sem consentimento                          | `Tipo=Laudo`, `ConsentimentoSaude=false`                 | **400**                     |
+| Arquivo `.exe` renomeado para `.pdf`         | upload do arquivo                                            | **400**                     |
+| Submeter envio incompleto                        | `direitoCodigo: "CIPTEA"` só com o laudo                  | **409**                     |
+| Devolver sem observação                        | `{"decisao": "Devolver"}`                                  | **400**                     |
+| Mais de 10 logins em 1 minuto                    | repetir `POST /api/auth/login`                             | **429** com `Retry-After` |
 
 ---
 
@@ -1109,20 +1111,20 @@ SELECT RAWTOHEX("Id") AS ID, "Tipo", "Tentativas", "ProcessadoEm", "UltimoErro" 
 
 ## Códigos HTTP utilizados
 
-| Código | Significado | Uso na API |
-|---|---|---|
-| 200 | OK | Consulta, atualização, submissão, análise ou login |
-| 201 | Created | Usuário, documento ou envio criado |
-| 204 | No Content | Exclusão, cancelamento ou atualização de status |
-| 400 | Bad Request | Dados inválidos, header `Idempotency-Key` ausente ou arquivo não permitido |
-| 401 | Unauthorized | Token ausente, inválido ou expirado; login com credenciais incorretas |
-| 403 | Forbidden | Papel sem permissão para o endpoint |
-| 404 | Not Found | Registro inexistente ou de outro cidadão |
-| 409 | Conflict | Regra de negócio no estado atual, registro duplicado ou mesma chave ainda em processamento |
-| 422 | Unprocessable Entity | Mesma `Idempotency-Key` com conteúdo diferente |
-| 429 | Too Many Requests | Limite de requisições atingido (`Retry-After`) |
-| 500 | Internal Server Error | Erro inesperado |
-| 503 | Service Unavailable | Banco de dados indisponível; `/health` com status `Unhealthy` |
+| Código | Significado           | Uso na API                                                                                  |
+| ------- | --------------------- | ------------------------------------------------------------------------------------------- |
+| 200     | OK                    | Consulta, atualização, submissão, análise ou login                                      |
+| 201     | Created               | Usuário, documento ou envio criado                                                         |
+| 204     | No Content            | Exclusão, cancelamento ou atualização de status                                          |
+| 400     | Bad Request           | Dados inválidos, header `Idempotency-Key` ausente ou arquivo não permitido              |
+| 401     | Unauthorized          | Token ausente, inválido ou expirado; login com credenciais incorretas                      |
+| 403     | Forbidden             | Papel sem permissão para o endpoint                                                        |
+| 404     | Not Found             | Registro inexistente ou de outro cidadão                                                   |
+| 409     | Conflict              | Regra de negócio no estado atual, registro duplicado ou mesma chave ainda em processamento |
+| 422     | Unprocessable Entity  | Mesma `Idempotency-Key` com conteúdo diferente                                           |
+| 429     | Too Many Requests     | Limite de requisições atingido (`Retry-After`)                                          |
+| 500     | Internal Server Error | Erro inesperado                                                                             |
+| 503     | Service Unavailable   | Banco de dados indisponível; `/health` com status `Unhealthy`                          |
 
 ---
 
